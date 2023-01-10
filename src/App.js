@@ -1,23 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { useState } from 'react';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Home} from './Pages/Home';
+import {UserProfile} from './Pages/';
+import {NavBar} from './Components/navBar';
+import {LoginModal} from './Components/loginModal';
+import {EventPage} from './Pages/eventPage'
+
+
+
+
 
 function App() {
+  const [loggedInUser, logUserIn] = useState(null);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <LoginModal 
+      loginUser={logUserIn}
+      loggedInUser={loggedInUser}
+      />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/"
+          element={<Home/>}/>
+          <Route path="/userProfile"
+          element={
+          <UserProfile
+            loggedInUser={loggedInUser}
+             />
+            } 
+          />
+          <Route path="/eventPage"
+          element={
+            <EventPage
+            loggedInUser={loggedInUser}
+            />
+          }
+          />
+          <Route path="/createEvent"
+          element={
+            <EventPage
+            loggedInUser={loggedInUser}
+            />
+          }
+          />
+
+        </Routes>
+
+      </BrowserRouter>
+
     </div>
   );
 }
