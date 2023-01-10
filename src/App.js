@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {Home} from './Pages/Home';
-import {UserProfile} from './Pages/';
+import {UserProfile} from './Pages/userProfile';
 import {NavBar} from './Components/navBar';
 import {LoginModal} from './Components/loginModal';
 import {EventPage} from './Pages/eventPage'
