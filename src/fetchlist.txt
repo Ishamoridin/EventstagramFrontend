@@ -1,0 +1,1 @@
+Get geocode based on location = http://dev.virtualearth.net/REST/v1/Locations?query=L2&key=03tWK4NbWXP4INCw1H1T~WVxGc2ltdBP301WHQB7U4w~Amma3KOnX4qa1pPrM6Z9HV8yuLbm7JeQqRH_F1dSn0mzmxhdLXjsceet_OySW0d5
