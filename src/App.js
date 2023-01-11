@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Pages/Home';
 import {UserProfile} from './Pages/userProfile';
 import {NavBar} from './Components/navBar';
-import {LoginModal} from './Components/loginModal';
+import LoginModal from './Components/loginModal';
 import {EventPage} from './Pages/eventPage'
 
 
@@ -17,12 +17,12 @@ function App() {
   
   return (
     <div className="App">
-      <NavBar />
+      {/* <NavBar /> */}
       <LoginModal 
       loginUser={logUserIn}
       loggedInUser={loggedInUser}
       />
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/"
           element={<Home/>}/>
@@ -50,7 +50,7 @@ function App() {
 
         </Routes>
 
-      </BrowserRouter>
+      </BrowserRouter> */}
 
     </div>
   );
