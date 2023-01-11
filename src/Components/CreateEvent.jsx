@@ -37,71 +37,54 @@ const CreateEvent = () => {
     <div className="form-wrapper">
       <form onSubmit={submitHandler}>
         <div className="event-container">
-          <label className="event-label">
-            Event:
-            <input onChange={(e) => setEventName(e.target.value)} required />
-          </label>
+          <label className="event-label">Event:</label>
+          <input onChange={(e) => setEventName(e.target.value)} required />
         </div>
 
         <br />
 
         <div className="description-container">
-          <label className="description-label">
-            Description:
-            <input onChange={(e) => setDescription(e.target.value)} />
-          </label>
+          <label className="description-label">Description:</label>
+          <input onChange={(e) => setDescription(e.target.value)} />
         </div>
 
         <br />
 
         <div className="location-container">
-          <label className="location-label">
-            Location:
-            <input onChange={(e) => setLocation(e.target.value)} required />
-          </label>
+          <label className="location-label">Location:</label>
+          <input onChange={(e) => setLocation(e.target.value)} required />
         </div>
 
         <br />
 
         <div className="capacity-container">
-          <label className="capacity-label">
-            Capacity:
-            <input onChange={(e) => setCapacity(e.target.value)} />
-          </label>
+          <label className="capacity-label">Capacity:</label>
+          <input onChange={(e) => setCapacity(e.target.value)} />
         </div>
 
         <br />
 
         <div className="intance-container">
-          <label className="instance-label">
-            Instance:
-            <input
-              type="number"
-              onChange={(e) => setInstance(e.target.value)}
-            />
-          </label>
+          <label className="instance-label">Instance:</label>
+          <input type="number" onChange={(e) => setInstance(e.target.value)} />
         </div>
 
         <br />
 
         <div className="start-time-container">
-          <label className="start-time-label">
-            Start Time:
-            <input
-              type="date"
-              onChange={(e) => setStartTime(e.target.value)}
-              required
-            />
-          </label>
+          <label className="start-time-label">Start Time:</label>
+          <input
+            type="date"
+            onChange={(e) => setStartTime(e.target.value)}
+            required
+          />
         </div>
 
         <br />
 
         <div className="end-time-container">
-          <label className="end-time-label">
-            End Time:
-            <input type="date" onChange={(e) => setEndTime(e.target.value)} />
-          </label>
+          <label className="end-time-label">End Time:</label>
+          <input type="date" onChange={(e) => setEndTime(e.target.value)} />
         </div>
 
         <br />
