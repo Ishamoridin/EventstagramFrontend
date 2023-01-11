@@ -10,7 +10,7 @@ import EventPage from "./Pages/EventPage";
 import PostEvent from "./Pages/PostEvent";
 
 const App = () => {
-  const [loggedInUser, logUserIn] = useState(null);
+const [loggedInUser, logUserIn] = useState(null);
 
   return (
     <div className="App">

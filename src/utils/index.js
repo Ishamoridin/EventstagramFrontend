@@ -1,4 +1,3 @@
-// require("dotenv");
 // export async function updateMap() {};
 // export async function updateWeather() {};
 export async function getGeolocationFromLocationString(location) {
