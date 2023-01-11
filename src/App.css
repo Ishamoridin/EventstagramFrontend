@@ -1,15 +1,26 @@
 :root {
   color: #22577a;
+  color: rgba(34, 87, 122);
   color: #38a3a5;
+  color: rgba(56, 163, 165);
   color: #57cc99;
+  color: rgba(87, 204, 153);
   color: #80ed99;
+  color: rgba(128, 237, 153);
   color: #c7f9cc;
+  color: rgba(199, 249, 204);
 }
 
 .App {
-  background-color: #c7f9cc;
+  background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%);
 }
 
 .App {
   text-align: center;
+  color: black;
+}
+
+.App h2 {
+  font-size: 100px;
+  color: black;
 }

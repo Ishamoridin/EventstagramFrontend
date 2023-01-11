@@ -1,6 +1,7 @@
-export const LoginModal = async(props) => {
+import React from "react";
 
-    return (
-        <div></div>
-    )
-}
+const loginModal = () => {
+  return <div>loginModal</div>;
+};
+
+export default loginModal;
