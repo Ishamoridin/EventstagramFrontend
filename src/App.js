@@ -3,15 +3,14 @@ import './App.css';
 import { useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Pages/Home';
-import {UserProfile} from './Pages/userProfile';
-import {LoginModal} from './Components/loginModal';
-import {EventPage} from './Pages/eventPage';
+import UserProfile from './Pages/UserProfile';
+import LoginModal from './Components/loginModal';
+import EventPage from './Pages/EventPage';
 import ToolBar from './Components/ToolBar';
 import Sidebar from './Components/Sidebar';
 import Backdrop from './Components/Backdrop';
-
-
-
+import PostEvent from './Pages/PostEvent';
+import { Link } from 'react-router-dom';
 
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <NavBar /> */}
       <BrowserRouter>
         <ToolBar openSidebar={toggleSidebar}/>
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
@@ -36,14 +34,14 @@ function App() {
         />
 
       
-        {/* <LoginModal loginUser={logUserIn} loggedInUser={loggedInUser} /> */}
-        <nav>
+        <LoginModal loginUser={logUserIn} loggedInUser={loggedInUser} />  */}
+         {/* <nav>
           <Link to="/">Home</Link>
           <Link to="/UserProfile">Profile</Link>
           <Link to="/EventPage">EventPage</Link>
           <Link to="/PostEvent">PostEvent</Link>
-        </nav>
-        <Routes>
+        </nav>  */}
+         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="/UserProfile"
@@ -57,7 +55,7 @@ function App() {
             path="/PostEvent"
             element={<PostEvent loggedInUser={loggedInUser} />}
           />
-        </Routes>
+        </Routes> 
       </BrowserRouter>
     </div>
   );
