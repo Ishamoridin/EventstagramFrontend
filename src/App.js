@@ -24,6 +24,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <NavBar /> */}
       <BrowserRouter>
         <ToolBar openSidebar={toggleSidebar}/>
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
@@ -35,33 +36,31 @@ function App() {
         />
 
       
+        {/* <LoginModal loginUser={logUserIn} loggedInUser={loggedInUser} /> */}
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/UserProfile">Profile</Link>
+          <Link to="/EventPage">EventPage</Link>
+          <Link to="/PostEvent">PostEvent</Link>
+        </nav>
         <Routes>
-          <Route path="/"
-          element={<Home/>}/>
-
-          <Route path="/userProfile"
-          element={<UserProfile loggedInUser={loggedInUser}/>} 
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/UserProfile"
+            element={<UserProfile loggedInUser={loggedInUser} />}
           />
-          <Route path="/eventPage"
-          element={
-            <EventPage
-            loggedInUser={loggedInUser}
-            />
-          }
+          <Route
+            path="/EventPage"
+            element={<EventPage loggedInUser={loggedInUser} />}
           />
-          <Route path="/createEvent"
-          element={
-            <EventPage
-            loggedInUser={loggedInUser}
-            />
-          }
+          <Route
+            path="/PostEvent"
+            element={<PostEvent loggedInUser={loggedInUser} />}
           />
-
         </Routes>
- */}
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
