@@ -3,10 +3,11 @@ import React from 'react';
 import { useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Pages/Home';
-import {UserProfile} from './Pages/userProfile';
-import {NavBar} from './Components/navBar';
-import LoginModal from './Components/loginModal';
-import {EventPage} from './Pages/eventPage'
+import UserProfile from './Pages/UserProfile';
+import NavBar from './Components/NavBar';
+import LoginModal from './Components/LoginModal';
+import EventPage from './Pages/EventPage'
+import SignUpModal from './Components/SignUpModal';
 
 
 
@@ -17,30 +18,32 @@ function App() {
   
   return (
     <div className="App">
-      {/* <NavBar /> */}
+      <NavBar />
+      <SignUpModal />
+      
       <LoginModal 
       loginUser={logUserIn}
       loggedInUser={loggedInUser}
       />
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/"
           element={<Home/>}/>
-          <Route path="/userProfile"
+          <Route path="/UserProfile"
           element={
           <UserProfile
             loggedInUser={loggedInUser}
              />
             } 
           />
-          <Route path="/eventPage"
+          <Route path="/EventPage"
           element={
             <EventPage
             loggedInUser={loggedInUser}
             />
           }
           />
-          <Route path="/createEvent"
+          <Route path="/CreateEvent"
           element={
             <EventPage
             loggedInUser={loggedInUser}
@@ -50,7 +53,7 @@ function App() {
 
         </Routes>
 
-      </BrowserRouter> */}
+      </BrowserRouter>
 
     </div>
   );

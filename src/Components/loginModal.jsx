@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 // import { loginUser } from '../utils'
-import '../styles/loginModal.css'
+import '../styles/LoginModal.css'
 
 const LoginModal = ({setter}) => {
     const [username, setUsername] = useState()
