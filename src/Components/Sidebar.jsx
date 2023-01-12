@@ -3,7 +3,8 @@ import { VscHome } from "react-icons/vsc";
 import { MdEvent } from "react-icons/md";
 import { MdOutlineCreate } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
-import '../styles/navbar.css'
+import { Link } from 'react-router-dom';
+import '../styles/Navbar.css'
 
 
 
@@ -11,10 +12,10 @@ import '../styles/navbar.css'
 const Sidebar = ({sidebar}) => {
   return (
     <div className={sidebar?"sidebar sidebar--open":"sidebar"}>
-        <li><i><VscHome/></i>Home</li>
-        <li><i><MdEvent/></i>Event Page</li>
-        <li><i><MdOutlineCreate/></i>Create Event Page</li>
-        <li><i><CiUser/></i>User Profile</li>
+        <li><i><VscHome/></i><Link to="/">Home</Link></li>
+        <li><i><MdEvent/></i><Link to="/EventPage">EventPage</Link></li>
+        <li><i><MdOutlineCreate/></i><Link to="/PostEvent">PostEvent</Link></li>
+        <li><i><CiUser/></i><Link to="/UserProfile">Profile</Link></li>
     </div>
   )
 };

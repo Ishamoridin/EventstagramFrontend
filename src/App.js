@@ -1,15 +1,18 @@
 import React from 'react';
 import './App.css';
-import { useState } from 'react';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { useState, useEffect } from 'react';
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Home from './Pages/Home';
-import {UserProfile} from './Pages/userProfile';
-import {LoginModal} from './Components/loginModal';
-import {EventPage} from './Pages/eventPage';
+import UserProfile from './Pages/UserProfile';
+import LoginModal from './Components/LoginModal';
+import EventPage from './Pages/EventPage';
+import PostEvent from './Pages/PostEvent';
 import ToolBar from './Components/ToolBar';
 import Sidebar from './Components/Sidebar';
 import Backdrop from './Components/Backdrop';
 
+import { getCookie } from './common'
+import { authCheck } from './utils'
 
 
 
@@ -22,27 +25,41 @@ function App() {
       setSidebar((prevState) => !prevState)
   }
 
+  const [user, setUser] = useState()
+  const [cookie, setCookie] = useState()
+
+  useEffect(()=>{
+    // searchFilms('Batman')
+    let cookie = getCookie('jwt_token')
+    if (cookie !== false) {
+      loginWithToken(cookie)
+    }
+  }, [])
+
+  const loginWithToken = async (cookie) => {
+    const user = await authCheck(cookie)
+    setUser(user)
+    setCookie(cookie)
+  }
+
   return (
     <div className="App">
-      {/* <NavBar /> */}
+      <LoginModal 
+        loginUser={logUserIn}
+        loggedInUser={loggedInUser}
+        />
+
       <BrowserRouter>
         <ToolBar openSidebar={toggleSidebar}/>
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
         <Sidebar sidebar={sidebar}/>
 
-        {/* <LoginModal 
-        loginUser={logUserIn}
-        loggedInUser={loggedInUser}
-        />
-
-      
-        {/* <LoginModal loginUser={logUserIn} loggedInUser={loggedInUser} /> */}
-        <nav>
+        {/* <nav>
           <Link to="/">Home</Link>
           <Link to="/UserProfile">Profile</Link>
           <Link to="/EventPage">EventPage</Link>
           <Link to="/PostEvent">PostEvent</Link>
-        </nav>
+        </nav> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route

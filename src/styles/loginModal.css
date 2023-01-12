@@ -50,6 +50,7 @@ body {
     flex-direction: column; 
 }
 .buttons {
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

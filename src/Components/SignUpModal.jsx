@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-// import { createUser } from '../utils'
+import { createUser } from '../utils'
 import '../styles/LoginModal.css'
 
 const SignUpModal = () => {
@@ -13,7 +13,7 @@ const SignUpModal = () => {
         console.log(username)
         console.log(email)
         console.log(password)
-        // await createUser(username, email, password)
+        await createUser(username, email, password)
   return (
     <div className='outerContainer'>
         <div className='innerContainer'>
@@ -30,7 +30,7 @@ const SignUpModal = () => {
                     <input type="password" onChange={(event) => setPassword(event.target.value) } required />
                 </label>
                 <br/>
-                <button type="submit">Create Account</button>
+                <button type="submit" className='signUp'>Create Account</button>
             </form>
         </div>
     </div>
