@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import Home from './Pages/Home';
 import UserProfile from './Pages/UserProfile';
 import LoginModal from './Components/LoginModal';
+import SignUpModal from './Components/SignUpModal';
 import EventPage from './Pages/EventPage';
 import PostEvent from './Pages/PostEvent';
 import ToolBar from './Components/ToolBar';
@@ -47,17 +48,14 @@ function App() {
         loggedInUser={loggedInUser}
         />
 
+      <SignUpModal />
+
       <BrowserRouter>
         <ToolBar openSidebar={toggleSidebar} />
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
         <Sidebar sidebar={sidebar} />
 
-        {/* <nav>
-          <Link to="/">Home</Link>
-          <Link to="/UserProfile">Profile</Link>
-          <Link to="/EventPage">EventPage</Link>
-          <Link to="/PostEvent">PostEvent</Link>
-        </nav> */}
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
