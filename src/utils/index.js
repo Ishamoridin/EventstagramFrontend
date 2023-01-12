@@ -25,9 +25,27 @@ export const createEvent = async (
 ) => {
   try {
     // fetch request for createEvent
-    const response = await fetch(`{}`);
-    const data = await response.json();
-    console.log(data);
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "/createEvent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          eventName: eventName,
+          startTime: startTime,
+          endTime: endTime,
+          description: description,
+          location: location,
+          capacity: capacity,
+          instance: instance,
+        }),
+      }
+    );
+    const eventData = await response.json();
+    console.log(eventData);
+    return eventData;
   } catch (error) {
     console.log(error);
   }
