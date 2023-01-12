@@ -45,7 +45,7 @@ const CreateEvent = () => {
 
         <div className="description-container">
           <label className="description-label">Description:</label>
-          <input onChange={(e) => setDescription(e.target.value)} />
+          <textarea onChange={(e) => setDescription(e.target.value)} />
         </div>
 
         <br />
@@ -64,7 +64,7 @@ const CreateEvent = () => {
 
         <br />
 
-        <div className="intance-container">
+        <div className="instance-container">
           <label className="instance-label">Instance:</label>
           <input type="number" onChange={(e) => setInstance(e.target.value)} />
         </div>
@@ -89,7 +89,11 @@ const CreateEvent = () => {
 
         <br />
 
-        <button type="submit">Create Event</button>
+        <div className="btn-wrapper">
+          <button classname="create-event-btn" type="submit">
+            Create Event
+          </button>
+        </div>
       </form>
     </div>
   );
