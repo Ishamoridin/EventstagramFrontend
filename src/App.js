@@ -1,34 +1,31 @@
-import React from 'react';
-import './App.css';
-import { useState } from 'react';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from './Pages/Home';
-import {UserProfile} from './Pages/userProfile';
-import {LoginModal} from './Components/loginModal';
-import {EventPage} from './Pages/eventPage';
-import ToolBar from './Components/ToolBar';
-import Sidebar from './Components/Sidebar';
-import Backdrop from './Components/Backdrop';
-
-
-
-
+import React from "react";
+import "./App.css";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Pages/Home";
+import UserProfile from "./Pages/UserProfile";
+import LoginModal from "./Components/LoginModal";
+import EventPage from "./Pages/EventPage";
+import ToolBar from "./Components/ToolBar";
+import Sidebar from "./Components/Sidebar";
+import Backdrop from "./Components/Backdrop";
+import PostEvent from "./Pages/PostEvent";
 
 function App() {
   const [loggedInUser, logUserIn] = useState(null);
 
-  const[sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
   const toggleSidebar = () => {
-      setSidebar((prevState) => !prevState)
-  }
+    setSidebar((prevState) => !prevState);
+  };
 
   return (
     <div className="App">
       {/* <NavBar /> */}
       <BrowserRouter>
-        <ToolBar openSidebar={toggleSidebar}/>
-        <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
-        <Sidebar sidebar={sidebar}/>
+        <ToolBar openSidebar={toggleSidebar} />
+        <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
+        <Sidebar sidebar={sidebar} />
 
         {/* <LoginModal 
         loginUser={logUserIn}
@@ -61,6 +58,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-};
+}
 
 export default App;
