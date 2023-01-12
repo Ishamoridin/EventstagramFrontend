@@ -16,20 +16,18 @@ import { authCheck } from './utils'
 
 
 
-
 function App() {
   const [loggedInUser, logUserIn] = useState(null);
 
-  const[sidebar, setSidebar] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
   const toggleSidebar = () => {
-      setSidebar((prevState) => !prevState)
-  }
+    setSidebar((prevState) => !prevState);
+  };
 
   const [user, setUser] = useState()
   const [cookie, setCookie] = useState()
 
   useEffect(()=>{
-    // searchFilms('Batman')
     let cookie = getCookie('jwt_token')
     if (cookie !== false) {
       loginWithToken(cookie)
@@ -50,9 +48,9 @@ function App() {
         />
 
       <BrowserRouter>
-        <ToolBar openSidebar={toggleSidebar}/>
-        <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
-        <Sidebar sidebar={sidebar}/>
+        <ToolBar openSidebar={toggleSidebar} />
+        <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
+        <Sidebar sidebar={sidebar} />
 
         {/* <nav>
           <Link to="/">Home</Link>
@@ -80,6 +78,6 @@ function App() {
 
     </div>
   );
-};
+}
 
 export default App;
