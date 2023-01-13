@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { loginUser } from '../utils'
+// import { loginUser } from '../utils'
 import "../styles/LoginModal.css";
-import { Link } from "react-router-dom";
 
 const LoginModal = ({ setter }) => {
   const [username, setUsername] = useState();
@@ -14,10 +13,8 @@ const LoginModal = ({ setter }) => {
     console.log(username);
     console.log(email);
     console.log(password);
-    await loginUser(username, email, password, setter)
-    Promise.reject(Error);
+    // await loginUser(username, email, password, setter)
   };
-
   return (
     <div className="outerContainer">
       <div className="innerContainer">
@@ -25,23 +22,35 @@ const LoginModal = ({ setter }) => {
           <label className="username">
             Username:
             <input
-              onChange={(event) => setUsername(event.target.value)} type="username" placeholder="Username123"
+              onChange={(event) => setUsername(event.target.value)}
               required
             />
           </label>
+          <br></br>
           <label className="email">
             Email:
-            <input onChange={(event) => setEmail(event.target.value)} type="email" placeholder="youremail@email.com" required />
+            <input
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
           </label>
+          <br></br>
           <label className="password">
             Password:
-            <input type="password" onChange={(event) => setPassword(event.target.value)} placeholder="***********" required
+            <input
+              type="password"
+              onChange={(event) => setPassword(event.target.value)}
+              required
             />
           </label>
           <br></br>
           <div className="buttons">
-            <button type="submit" className="login">Login</button>
-            <Link to="/SignUp"><button className="signUp">Sign Up</button></Link>
+            <button type="submit" className="login">
+              Login
+            </button>
+            <button type="submit" className="signUp">
+              Sign Up
+            </button>
           </div>
         </form>
       </div>
