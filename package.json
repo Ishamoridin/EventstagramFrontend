@@ -16,7 +16,6 @@
     "react-scripts": "5.0.1",
     "react-switch": "^7.0.0",
     "switch": "^0.0.0",
-    "typescript": "^4.9.4",
     "use-local-storage": "^2.3.6",
     "web-vitals": "^2.1.4"
   },
