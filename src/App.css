@@ -11,9 +11,9 @@
   color: rgba(199, 249, 204);
 }
 
-.App {
+/* .App {
   background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%);
-}
+} */
 
 .App {
   text-align: center;
@@ -23,4 +23,9 @@
 .App h2 {
   font-size: 100px;
   color: black;
+}
+
+.darkmoode{
+  margin-left: 92%;
+  margin-top: 5px;
 }

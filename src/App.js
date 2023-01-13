@@ -10,12 +10,14 @@ import ToolBar from './Components/ToolBar';
 import Sidebar from './Components/Sidebar';
 import Backdrop from './Components/Backdrop';
 import PostEvent from './Pages/PostEvent';
-import { Link } from 'react-router-dom';
+import DarkMode from './Components/DarkMood';
+
+
+
 
 
 function App() {
   const [loggedInUser, logUserIn] = useState(null);
-
   const[sidebar, setSidebar] = useState(false);
   const toggleSidebar = () => {
       setSidebar((prevState) => !prevState)
@@ -27,6 +29,9 @@ function App() {
         <ToolBar openSidebar={toggleSidebar}/>
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
         <Sidebar sidebar={sidebar}/>
+        <div className='darkmoode'>
+          <DarkMode/>
+        </div>
 
         {/* <LoginModal 
         loginUser={logUserIn}
@@ -35,12 +40,6 @@ function App() {
 
       
         <LoginModal loginUser={logUserIn} loggedInUser={loggedInUser} />  */}
-         {/* <nav>
-          <Link to="/">Home</Link>
-          <Link to="/UserProfile">Profile</Link>
-          <Link to="/EventPage">EventPage</Link>
-          <Link to="/PostEvent">PostEvent</Link>
-        </nav>  */}
          <Routes>
           <Route path="/" element={<Home />} />
           <Route

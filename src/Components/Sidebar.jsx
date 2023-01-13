@@ -14,6 +14,11 @@ const Sidebar = ({sidebar}) => {
   return (
     <div className={sidebar ? "sidebar sidebar--open":"sidebar"}>
       <div className='links'>
+        <br/>
+        <br/>
+        <br/>
+        <h1>Eventstagram</h1>
+        <br/>
         <Link to="/"><li><i><VscHome/></i>Home</li></Link>
         <Link to="/EventPage"><li><i><MdEvent/></i>Event</li></Link>
         <Link to="/PostEvent"><li><i><MdOutlineCreate/></i>Post Event</li></Link>
