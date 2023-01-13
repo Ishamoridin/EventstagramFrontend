@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { createUser } from "../utils";
 import "../styles/LoginModal.css";
@@ -17,6 +18,7 @@ const SignUpModal = () => {
     }
 
     return (
+        <div>
         <form onSubmit={submitHandler}>
             <label>Username:
                 <input onChange={(event) => setUsername(event.target.value) } required />
@@ -31,8 +33,9 @@ const SignUpModal = () => {
             </label>
             <br/>
             <button type="submit" className="login">Create Account</button>
-            <Link to="/Login"><button className="signUp">Back to Login</button></Link>
         </form>
+        <Link to="/Login"><button className="signUp">Back to Login</button></Link>
+        </div>
     )
 }
 
