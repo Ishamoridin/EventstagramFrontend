@@ -15,7 +15,7 @@ const EventCard = ({ Event, User }) => {
   const userNavigate = useNavigate();
   const userClick = () => {
     console.log("username clicked with user.id", User.id);
-    userNavigate("UserProfile", {
+    userNavigate("/UserProfile", {
       state: { id: User.id },
     });
   };

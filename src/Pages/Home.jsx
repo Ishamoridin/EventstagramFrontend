@@ -1,6 +1,7 @@
 import React from "react";
 import { readEvents } from "../utils";
 import { useEffect, useState } from "react";
+import EventCard from "../Components/EventCard";
 
 const Home = () => {
   const [events, setEvents] = useState();
@@ -21,11 +22,12 @@ const Home = () => {
         {events?.length > 0 ? (
           <div className="event-card-container">
             {events.map((post) => (
-              <div className="post-wrapper">
-                <p className="event-name">{post.eventName}</p>
-                <p className="location">{post.location}</p>
-                <p className="start-time">{post.startTime}</p>
-              </div>
+              // <div className="post-wrapper">
+              //   <p className="event-name">{post.eventName}</p>
+              //   <p className="location">{post.location}</p>
+              //   <p className="start-time">{post.startTime}</p>
+              // </div>
+              <EventCard post={post} />
             ))}
           </div>
         ) : (
