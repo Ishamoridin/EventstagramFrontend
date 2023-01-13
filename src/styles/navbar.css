@@ -7,16 +7,15 @@
 
 .tool-bar{
     background: rgb(77, 220, 206);
-    color: #fff;
+    color: rgb(15, 9, 43);
     display: flex;
     justify-content: center;
     justify-items: center;
     object-fit: contain;
     border: 1px solid lightgray;
-    gap: 1rem;
+    /* gap: 1rem; */
     align-items: center;
-    padding: 1rem;
-    text-decoration: none !important;
+    /* padding: 1rem; */
 }
 
 .sidebar{
@@ -28,8 +27,7 @@
     height: 100vh;
     width: 280px;
     transform: translate(-100%);
-    transition: all 0.4s;
-    text-decoration: none !important;
+    transition: all 0.6s;
 }
 
 
@@ -42,17 +40,15 @@
     align-items: center;
     gap: 1rem;
     font-size: 22px;
-    text-decoration: none !important;
-}
-
-.links{
-    text-decoration: none;
-
 }
 
 
-.sidebar Link li{
-    text-decoration: none;
+.sidebar .links img{
+    width: 250px;
+}
+
+.tool-bar img{
+    width: 300px;
 
 }
 
@@ -66,8 +62,6 @@
 .sidebar--open{
     transform: translate(0%);
     scroll-behavior: smooth;
-    text-decoration: none !important;
-
 }
 
 .backdrop{
