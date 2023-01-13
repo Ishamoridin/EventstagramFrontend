@@ -44,11 +44,6 @@ function App() {
 
   return (
     <div className="App">
-    
-      <LoginModal
-        loginUser={logUserIn}
-        loggedInUser={loggedInUser}
-        />
 
       <BrowserRouter>
 
@@ -59,7 +54,10 @@ function App() {
           <Routes>
           <Route
           path='/Login'
-          element={<LoginModal />}
+          element={<LoginModal           
+            loginUser={logUserIn}
+            loggedInUser={loggedInUser}
+          />}
           />
 
           <Route
