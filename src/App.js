@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { useState, useEffect } from 'react';
-import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Pages/Home';
 import UserProfile from './Pages/UserProfile';
 import LoginModal from './Components/LoginModal';
@@ -39,25 +39,39 @@ function App() {
     const user = await authCheck(cookie)
     setUser(user)
     setCookie(cookie)
-  }
+  };
+
 
   return (
     <div className="App">
-      <LoginModal 
+    
+      <LoginModal
         loginUser={logUserIn}
         loggedInUser={loggedInUser}
         />
 
-      <SignUpModal />
-
       <BrowserRouter>
+
         <ToolBar openSidebar={toggleSidebar} />
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
         <Sidebar sidebar={sidebar} />
 
+          <Routes>
+          <Route
+          path='/Login'
+          element={<LoginModal />}
+          />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+          path='/SignUp'
+          element={<SignUpModal />}
+          />
+
+          <Route
+           path="/"
+           element={<Home />} 
+          />
+
           <Route
             path="/UserProfile"
             element={<UserProfile loggedInUser={loggedInUser} />}

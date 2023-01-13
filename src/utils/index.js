@@ -41,10 +41,10 @@ export const loadEvent = async () => {
   }
 };
 
-//CRUD Functionality
+//CRUD Functionality for Users
 export const createUser = async (username, email, password) => {
   try {
-      const response = await fetch(`${process.env.REACT_APP_RENDER_URL}createUser`, {
+      const response = await fetch(process.env.REACT_APP_RENDER_URL+"createUser", {
           method: "POST",
           headers: {
               "Content-Type" : "application/json"
@@ -64,7 +64,7 @@ export const createUser = async (username, email, password) => {
 
 export const readUser = async () => {
   try {
-      const response = await fetch(`${process.env.REACT_APP_RENDER_URL}readUsers`, {
+      const response = await fetch(process.env.REACT_APP_RENDER_URL+"readUsers", {
           method: "GET",
           headers: {
               "Content-Type" : "application/json"
@@ -80,7 +80,7 @@ export const readUser = async () => {
 
 export const loginUser = async (username, email, password, setter) => {
   try {
-      const response = await fetch(`${process.env.REACT_APP_RENDER_URL}login`, {
+      const response = await fetch(process.env.REACT_APP_RENDER_URL+"login", {
           method: "POST",
           headers: {
               "Content-Type" : "application/json"
@@ -100,7 +100,7 @@ export const loginUser = async (username, email, password, setter) => {
 
 export const authCheck = async (jwtToken) => {
   try {
-      const response = await fetch(`${process.env.REACT_APP_RENDER_URL}authCheck`, {
+      const response = await fetch(process.env.REACT_APP_RENDER_URL+"authCheck", {
           method: "GET",
           headers: {
               "Content-Type" : "application/json",
@@ -117,7 +117,7 @@ export const authCheck = async (jwtToken) => {
 
 export const updateUser = async (username, key, value) => {
   try {
-      const response = await fetch(`${process.env.REACT_APP_RENDER_URL}updateUser`, {
+      const response = await fetch(process.env.REACT_APP_RENDER_URL+"updateUser", {
           method: "PUT",
           headers: {
               "Content-Type" : "application/json"
@@ -137,7 +137,7 @@ export const updateUser = async (username, key, value) => {
 
 export const deleteUser = async (username) => {
   try {
-      const response = await fetch(`${process.env.REACT_APP_RENDER_URL}deleteUser`, {
+      const response = await fetch(process.env.REACT_APP_RENDER_URL+"deleteUser", {
           method: "DELETE",
           headers: {
               "Content-Type" : "application/json"
