@@ -12,6 +12,7 @@ const Home = () => {
 
   const loadEvents = async () => {
     let events = await readEvents();
+    console.log(events);
     setEvents(events);
   };
 

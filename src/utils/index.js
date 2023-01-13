@@ -14,6 +14,7 @@ export async function getGeolocationFromLocationString(location) {
   }
 }
 
+// create event:
 export const createEvent = async (
   eventName,
   startTime,
@@ -26,11 +27,12 @@ export const createEvent = async (
   try {
     // fetch request for createEvent
     const response = await fetch(
-      process.env.REACT_APP_RENDER_URL + "/createEvent",
+      process.env.REACT_APP_RENDER_URL + "createEvent",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          referrerPolicy: "origin",
         },
         body: JSON.stringify({
           eventName: eventName,
@@ -51,15 +53,17 @@ export const createEvent = async (
   }
 };
 
+//read events:
 export const readEvents = async () => {
   try {
     // fetch to database for event
     const response = await fetch(
-      process.env.REACT_APP_RENDER_URL + "/readEvents",
+      process.env.REACT_APP_RENDER_URL + "readEvents",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          referrerPolicy: "origin",
         },
       }
     );
@@ -69,3 +73,5 @@ export const readEvents = async () => {
     console.log(error);
   }
 };
+
+//read users:
