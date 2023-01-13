@@ -51,9 +51,20 @@ export const createEvent = async (
   }
 };
 
-export const loadEvent = async () => {
+export const readEvents = async () => {
   try {
     // fetch to database for event
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "/readEvents",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.log(error);
   }
