@@ -154,4 +154,10 @@ export const deleteUser = async (username) => {
   } catch (error) {
       console.log(error)
   }
+};
+
+export const loginWithToken = async (cookie, logUserIn, setCookie) => {
+  const user = await authCheck(cookie)
+  logUserIn(user)
+  setCookie(cookie)
 }

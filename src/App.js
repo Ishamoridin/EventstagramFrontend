@@ -13,7 +13,7 @@ import Sidebar from './Components/Sidebar';
 import Backdrop from './Components/Backdrop';
 
 import { getCookie } from './common'
-import { authCheck } from './utils'
+import { loginWithToken } from './utils'
 
 
 
@@ -25,20 +25,20 @@ function App() {
     setSidebar((prevState) => !prevState);
   };
 
-  const [cookie, setCookie] = useState()
+  // const [cookie, setCookie] = useState()
 
   useEffect(()=>{
     let cookie = getCookie('jwt_token')
     if (cookie !== false) {
-      loginWithToken(cookie)
+      loginWithToken(cookie, logUserIn)
     }
   }, [])
 
-  const loginWithToken = async (cookie) => {
-    const user = await authCheck(cookie)
-    logUserIn(user)
-    setCookie(cookie)
-  };
+  // const loginWithToken = async (cookie) => {
+  //   const user = await authCheck(cookie)
+  //   logUserIn(user)
+  //   setCookie(cookie)
+  // };
 
 
   return (
