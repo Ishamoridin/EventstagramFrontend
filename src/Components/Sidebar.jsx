@@ -14,7 +14,7 @@ const Sidebar = ({sidebar}) => {
     <div className={sidebar ? "sidebar sidebar--open":"sidebar"}>
       <div className='links'>
         {/* <h1>Eventstagram</h1> */}
-        <div className="img"><img src={logo}/></div>
+        <div className="img"><img src={logo} alt=""/></div>
         <Link to="/"><li><i><VscHome/></i>Home</li></Link>
         <Link to="/EventPage"><li><i><MdEvent/></i>Event</li></Link>
         <Link to="/PostEvent"><li><i><MdOutlineCreate/></i>Post Event</li></Link>

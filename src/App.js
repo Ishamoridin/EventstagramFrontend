@@ -10,7 +10,6 @@ import ToolBar from './Components/ToolBar';
 import Sidebar from './Components/Sidebar';
 import Backdrop from './Components/Backdrop';
 import PostEvent from './Pages/PostEvent';
-import DarkMode from './Components/DarkMood';
 
 
 
@@ -24,14 +23,12 @@ function App() {
   }
 
   return (
+    <useDarkMode>
     <div className="App">
       <BrowserRouter>
         <ToolBar openSidebar={toggleSidebar}/>
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
         <Sidebar sidebar={sidebar}/>
-        <div className='darkmoode'>
-          <DarkMode/>
-        </div>
 
         {/* <LoginModal 
         loginUser={logUserIn}
@@ -57,6 +54,7 @@ function App() {
         </Routes> 
       </BrowserRouter>
     </div>
+    </useDarkMode>
   );
 };
 

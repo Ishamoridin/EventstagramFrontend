@@ -89,9 +89,25 @@
 .bar{
     position: absolute;
     margin-right: 96%;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.bar :hover{
+    /* background-color: rgb(34, 149, 139); */
+    color: white;
 }
 
 .sidebar--open h1{
     color: red;
     font-family: 'Courgette', cursive;
 }
+
+.tool-bar .darkmode{
+    position: absolute;
+    margin-left: 90%;
+  }
+  
+
+
+  

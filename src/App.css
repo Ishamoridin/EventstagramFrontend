@@ -11,9 +11,9 @@
   color: rgba(199, 249, 204);
 }
 
-/* .App {
+.App {
   background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%);
-} */
+}
 
 .App {
   text-align: center;
@@ -26,6 +26,7 @@
 }
 
 .darkmoode{
-  margin-left: 92%;
   margin-top: 5px;
+  margin-right: 15px;
+  direction: rtl;
 }
