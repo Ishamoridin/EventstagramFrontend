@@ -74,7 +74,7 @@ const CreateEvent = () => {
         <div className="start-time-container">
           <label className="start-time-label">Start Time:</label>
           <input
-            type="date"
+            type="datetime-local"
             onChange={(e) => setStartTime(e.target.value)}
             required
           />
@@ -84,13 +84,16 @@ const CreateEvent = () => {
 
         <div className="end-time-container">
           <label className="end-time-label">End Time:</label>
-          <input type="date" onChange={(e) => setEndTime(e.target.value)} />
+          <input
+            type="datetime-local"
+            onChange={(e) => setEndTime(e.target.value)}
+          />
         </div>
 
         <br />
 
         <div className="btn-wrapper">
-          <button classname="create-event-btn" type="submit">
+          <button className="create-event-btn" type="submit">
             Create Event
           </button>
         </div>

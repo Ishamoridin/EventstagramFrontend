@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { VscHome } from "react-icons/vsc";
 import { MdEvent } from "react-icons/md";
 import { MdOutlineCreate } from "react-icons/md";
@@ -19,10 +19,7 @@ const Sidebar = ({sidebar, logUserIn}) => {
         <li><i><CiUser/></i><Link onClick={() => logUserIn(null)} to="/login">Logout</Link></li>
         </div>
   )
+
 };
 
-export default Sidebar
-
-
-
-
+export default Sidebar;
