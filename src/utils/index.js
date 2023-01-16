@@ -14,6 +14,7 @@ export async function getGeolocationFromLocationString(location) {
   }
 }
 
+// create event:
 export const createEvent = async (
   eventName,
   startTime,
@@ -21,16 +22,18 @@ export const createEvent = async (
   description,
   location,
   capacity,
-  instance
+  instance,
+  eventOwner
 ) => {
   try {
     // fetch request for createEvent
     const response = await fetch(
-      process.env.REACT_APP_RENDER_URL + "/createEvent",
+      process.env.REACT_APP_RENDER_URL + "createEvent",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          referrerPolicy: "origin",
         },
         body: JSON.stringify({
           eventName: eventName,
@@ -40,6 +43,7 @@ export const createEvent = async (
           location: location,
           capacity: capacity,
           instance: instance,
+          eventOwner: eventOwner,
         }),
       }
     );
@@ -51,20 +55,68 @@ export const createEvent = async (
   }
 };
 
+//read events:
 export const readEvents = async () => {
   try {
     // fetch to database for event
     const response = await fetch(
-      process.env.REACT_APP_RENDER_URL + "/readEvents",
+      process.env.REACT_APP_RENDER_URL + "readEvents",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          referrerPolicy: "origin",
         },
       }
     );
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//update event:
+export const updateEvent = async (id, key, value) => {
+  try {
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "updateEvent",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "appliaction/json",
+        },
+        body: JSON.stringify({
+          id: id,
+          key: key,
+          value: value,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//delete event:
+export const deleteEvent = async (id) => {
+  try {
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "deleteEvent",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: id.eventName,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
