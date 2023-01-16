@@ -1,15 +1,21 @@
-import React from "react";
-import "./App.css";
-import { useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./Pages/Home";
-import UserProfile from "./Pages/UserProfile";
-import LoginModal from "./Components/LoginModal";
-import EventPage from "./Pages/EventPage";
-import ToolBar from "./Components/ToolBar";
-import Sidebar from "./Components/Sidebar";
-import Backdrop from "./Components/Backdrop";
-import PostEvent from "./Pages/PostEvent";
+import React from 'react';
+import './App.css';
+import { useState, useEffect } from 'react';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from './Pages/Home';
+import UserProfile from './Pages/UserProfile';
+import LoginModal from './Components/LoginModal';
+import SignUpModal from './Components/SignUpModal';
+import EventPage from './Pages/EventPage';
+import PostEvent from './Pages/PostEvent';
+import ToolBar from './Components/ToolBar';
+import Sidebar from './Components/Sidebar';
+import Backdrop from './Components/Backdrop';
+
+import { getCookie } from './common'
+import { loginWithToken } from './utils'
+
+
 
 function App() {
   const [loggedInUser, logUserIn] = useState(null);
@@ -19,29 +25,52 @@ function App() {
     setSidebar((prevState) => !prevState);
   };
 
+  //const [cookie, setCookie] = useState()
+
+  useEffect(()=>{
+    let cookie = getCookie('jwt_token')
+    if (cookie !== false) {
+      loginWithToken(cookie, logUserIn)
+    };
+  }, [])
+
+  // if (loggedInUser === null) {
+  //   return <Navigate replace to="/login" />;
+  //   } else {
+  //   return ();
+  //   }
+
+
   return (
     <div className="App">
-      {/* <NavBar /> */}
+
       <BrowserRouter>
+
         <ToolBar openSidebar={toggleSidebar} />
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
-        <Sidebar sidebar={sidebar} />
-
-        {/* <LoginModal 
-        loginUser={logUserIn}
-        loggedInUser={loggedInUser}
-        />
-
-      
-        {/* <LoginModal loginUser={logUserIn} loggedInUser={loggedInUser} /> */}
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/UserProfile">Profile</Link>
-          <Link to="/EventPage">EventPage</Link>
-          <Link to="/PostEvent">PostEvent</Link>
-        </nav>
+        <Sidebar 
+          sidebar={sidebar}
+          logUserIn={logUserIn}
+           />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+          path='/Login'
+          element={<LoginModal           
+            setter={logUserIn}
+            loggedInUser={loggedInUser}
+          />}
+          />
+
+          <Route
+          path='/SignUp'
+          element={<SignUpModal />}
+          />
+
+          <Route
+           path="/"
+           element={<Home />} 
+          />
+
           <Route
             path="/UserProfile"
             element={<UserProfile loggedInUser={loggedInUser} />}
@@ -55,7 +84,9 @@ function App() {
             element={<PostEvent loggedInUser={loggedInUser} />}
           />
         </Routes>
+
       </BrowserRouter>
+
     </div>
   );
 }

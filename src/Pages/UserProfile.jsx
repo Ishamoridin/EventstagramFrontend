@@ -1,6 +1,7 @@
 import React from "react";
 import ReadUser from "../Components/ReadUser";
 
+
 const UserProfile = ({ loggedInUser }) => {
   return (
     <div>
