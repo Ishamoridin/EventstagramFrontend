@@ -1,5 +1,8 @@
 
 // export async function updateMap() {};
+
+import { redirect } from "react-router-dom";
+
 // export async function updateWeather() {};
 export async function getGeolocationFromLocationString(location) {
   const fetchString =
@@ -156,8 +159,8 @@ export const deleteUser = async (username) => {
   }
 };
 
-export const loginWithToken = async (cookie, logUserIn, setCookie) => {
+export const loginWithToken = async (cookie, logUserIn) => {
   const user = await authCheck(cookie)
-  logUserIn(user)
-  setCookie(cookie)
-}
+    logUserIn(user)
+    redirect ('/')
+};

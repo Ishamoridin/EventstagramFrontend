@@ -25,7 +25,7 @@ function App() {
     setSidebar((prevState) => !prevState);
   };
 
-  // const [cookie, setCookie] = useState()
+  //const [cookie, setCookie] = useState()
 
   useEffect(()=>{
     let cookie = getCookie('jwt_token')
