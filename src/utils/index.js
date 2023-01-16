@@ -94,7 +94,8 @@ export const loginUser = async (username, email, password, setter) => {
           })
       })
       const data = await response.json()
-      console.log(data)
+      console.log(data);
+      setter(data.username);
   } catch (error) {
       console.log(error)
   }

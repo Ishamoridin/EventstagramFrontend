@@ -14,7 +14,7 @@ const LoginModal = ({ setter }) => {
     console.log(username);
     console.log(email);
     console.log(password);
-    await loginUser(username, email, password, setter)
+    await loginUser(username, email, password, setUsername)
   };
   return (
     <div className="outerContainer">
