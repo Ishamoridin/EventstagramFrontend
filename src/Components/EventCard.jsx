@@ -5,7 +5,7 @@ const EventCard = ({ id }) => {
   // function to navigate to event listing when clicked:
   const navigate = useNavigate();
   const handleClick = () => {
-    console.log("event card clicked with event.id", Event.id);
+    console.log("event card clicked with event.id", id);
     navigate("/EventPage", {
       state: { id: Event.id },
     });
@@ -24,7 +24,7 @@ const EventCard = ({ id }) => {
     return (
       <div className="event-card" onClick={() => handleClick()}>
         <div>
-          <p className="event-name">{Event.eventName}</p>
+          <p className="event-name">{id.eventName}</p>
         </div>
         <div className="img-wrapper">
           {/*Map image?:*/}
@@ -34,8 +34,8 @@ const EventCard = ({ id }) => {
           {/* <p className="username" onClick={() => userClick()}>
             {User.username}
           </p> */}
-          <p className="location">{Event.location}</p>
-          <p className="start-time-text">{Event.startTime}</p>
+          <p className="location">{id.location}</p>
+          <p className="start-time-text">{id.startTime}</p>
         </div>
       </div>
     );

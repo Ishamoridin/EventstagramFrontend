@@ -22,7 +22,8 @@ export const createEvent = async (
   description,
   location,
   capacity,
-  instance
+  instance,
+  eventOwner
 ) => {
   try {
     // fetch request for createEvent
@@ -42,6 +43,7 @@ export const createEvent = async (
           location: location,
           capacity: capacity,
           instance: instance,
+          eventOwner: eventOwner,
         }),
       }
     );
@@ -74,4 +76,48 @@ export const readEvents = async () => {
   }
 };
 
-//read users:
+//update event:
+export const updateEvent = async (id, key, value) => {
+  try {
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "updateEvent",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "appliaction/json",
+        },
+        body: JSON.stringify({
+          id: id,
+          key: key,
+          value: value,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//delete event:
+export const deleteEvent = async (id) => {
+  try {
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "deleteEvent",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: id.eventName,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
