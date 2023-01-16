@@ -55,7 +55,7 @@ function App() {
           <Route
           path='/Login'
           element={<LoginModal           
-            loginUser={logUserIn}
+            setter={logUserIn}
             loggedInUser={loggedInUser}
           />}
           />

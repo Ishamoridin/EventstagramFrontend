@@ -4,7 +4,7 @@ import { loginUser } from '../utils'
 import { Link } from "react-router-dom";
 import "../styles/LoginModal.css";
 
-const LoginModal = ({ setter }) => {
+const LoginModal = ({setter, loggedInUser}) => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -14,7 +14,8 @@ const LoginModal = ({ setter }) => {
     console.log(username);
     console.log(email);
     console.log(password);
-    await loginUser(username, email, password, setUsername)
+    await loginUser(username, email, password, setter);
+    console.log(loggedInUser)
   };
   return (
     <div className="outerContainer">
