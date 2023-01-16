@@ -18,23 +18,25 @@ const SignUpModal = () => {
     }
 
     return (
-        <div>
-        <form onSubmit={submitHandler}>
-            <label>Username:
-                <input onChange={(event) => setUsername(event.target.value) } required />
-            </label>
-            <br/>
-            <label>e-Mail:
-                <input onChange={(event) => setEmail(event.target.value) } required />
-            </label>
-            <br/>
-            <label>Password:
-                <input type="password" onChange={(event) => setPassword(event.target.value) } required />
-            </label>
-            <br/>
-            <button type="submit" className="login">Create Account</button>
-        </form>
-        <Link to="/Login"><button className="signUp">Back to Login</button></Link>
+        <div className="outerContainer">
+            <div className="innerContainer">
+                <form onSubmit={submitHandler}>
+                    <label>Username:
+                        <input onChange={(event) => setUsername(event.target.value) } required />
+                    </label>
+                    <br/>
+                    <label>e-Mail:
+                        <input onChange={(event) => setEmail(event.target.value) } required />
+                    </label>
+                    <br/>
+                    <label>Password:
+                        <input type="password" onChange={(event) => setPassword(event.target.value) } required />
+                    </label>
+                    <br/>
+                    <button type="submit" className="login">Create Account</button>
+                </form>
+                <Link to="/Login"><button className="signUp">Back to Login</button></Link>
+            </div>
         </div>
     )
 }

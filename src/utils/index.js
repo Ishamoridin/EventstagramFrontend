@@ -1,3 +1,4 @@
+
 // export async function updateMap() {};
 // export async function updateWeather() {};
 export async function getGeolocationFromLocationString(location) {
@@ -43,6 +44,7 @@ export const loadEvent = async () => {
 
 //CRUD Functionality for Users
 export const createUser = async (username, email, password) => {
+  console.log(process.env.REACT_APP_RENDER_URL+"createUser")
   try {
       const response = await fetch(process.env.REACT_APP_RENDER_URL+"createUser", {
           method: "POST",
@@ -86,9 +88,9 @@ export const loginUser = async (username, email, password, setter) => {
               "Content-Type" : "application/json"
           },
           body: JSON.stringify({
-              "username" : username,
-              "email" : email,
-              "password" : password
+              username : username,
+              email : email,
+              password : password
           })
       })
       const data = await response.json()

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-// import { loginUser } from '../utils'
+import { loginUser } from '../utils'
+import { Link } from "react-router-dom";
 import "../styles/LoginModal.css";
 
 const LoginModal = ({ setter }) => {
@@ -13,7 +14,7 @@ const LoginModal = ({ setter }) => {
     console.log(username);
     console.log(email);
     console.log(password);
-    // await loginUser(username, email, password, setter)
+    await loginUser(username, email, password, setter)
   };
   return (
     <div className="outerContainer">
@@ -45,14 +46,10 @@ const LoginModal = ({ setter }) => {
           </label>
           <br></br>
           <div className="buttons">
-            <button type="submit" className="login">
-              Login
-            </button>
-            <button type="submit" className="signUp">
-              Sign Up
-            </button>
+            <button type="submit" className="login">Login</button>
           </div>
         </form>
+        <Link to="/SignUp"><button type="submit" className="signUp">Sign Up</button></Link>
       </div>
     </div>
   );
