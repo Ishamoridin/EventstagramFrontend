@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { loginUser } from '../utils'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/LoginModal.css";
 
 const LoginModal = ({setter, loggedInUser}) => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -16,7 +17,7 @@ const LoginModal = ({setter, loggedInUser}) => {
     console.log(password);
     const status = await loginUser(username, email, password, setter);
     console.log(loggedInUser);
-    if (!loggedInUser){tryToLogin(true)}
+    if (!loggedInUser){tryToLogin(true)}else{navigate('/')};
   };
   const [triedToLogin, tryToLogin] = useState(false)
   return (
