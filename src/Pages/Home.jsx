@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
 
 const Home = () => {
-  const [events, setEvents] = useState();
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     loadEvents();

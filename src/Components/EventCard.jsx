@@ -6,7 +6,7 @@ const EventCard = ({ id }) => {
   const navigate = useNavigate();
   const handleClick = () => {
     console.log("event card clicked with event.id", id);
-    navigate("/EventPage", ("success", { state }));
+    navigate("/EventPage", { state: { id: id } });
   };
 
   // function to navigate to user page when username clicked:

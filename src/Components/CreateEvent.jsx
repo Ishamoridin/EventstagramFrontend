@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createEvent } from "../utils";
 import "../styles/CreateEvent.css";
 
-const CreateEvent = () => {
+const CreateEvent = ({ loggedInUser }) => {
   const [eventName, setEventName] = useState();
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
@@ -29,7 +29,8 @@ const CreateEvent = () => {
       description,
       location,
       capacity,
-      instance
+      instance,
+      loggedInUser
     );
   };
 
