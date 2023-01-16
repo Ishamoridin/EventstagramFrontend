@@ -31,14 +31,14 @@ function App() {
     let cookie = getCookie('jwt_token')
     if (cookie !== false) {
       loginWithToken(cookie, logUserIn)
-    }
+    };
   }, [])
 
-  // const loginWithToken = async (cookie) => {
-  //   const user = await authCheck(cookie)
-  //   logUserIn(user)
-  //   setCookie(cookie)
-  // };
+  // if (loggedInUser === null) {
+  //   return <Navigate replace to="/login" />;
+  //   } else {
+  //   return ();
+  //   }
 
 
   return (
@@ -48,9 +48,11 @@ function App() {
 
         <ToolBar openSidebar={toggleSidebar} />
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
-        <Sidebar sidebar={sidebar} />
-
-          <Routes>
+        <Sidebar 
+          sidebar={sidebar}
+          logUserIn={logUserIn}
+           />
+        <Routes>
           <Route
           path='/Login'
           element={<LoginModal           

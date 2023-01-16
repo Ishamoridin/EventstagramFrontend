@@ -14,11 +14,14 @@ const LoginModal = ({setter, loggedInUser}) => {
     console.log(username);
     console.log(email);
     console.log(password);
-    await loginUser(username, email, password, setter);
-    console.log(loggedInUser)
+    const status = await loginUser(username, email, password, setter);
+    console.log(loggedInUser);
+    if (!loggedInUser){tryToLogin(true)}
   };
+  const [triedToLogin, tryToLogin] = useState(false)
   return (
     <div className="outerContainer">
+    <p className="pleaseTryAgain" style={{visibility: triedToLogin ? 'visible' : 'hidden' }}>Please Try Again</p>
       <div className="innerContainer">
         <form onSubmit={submitHandler} className="form">
           <label className="username">

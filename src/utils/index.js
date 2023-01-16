@@ -96,9 +96,11 @@ export const loginUser = async (username, email, password, setter) => {
               password : password
           })
       })
+      console.log(response)
       const data = await response.json()
       console.log(data);
-      setter(data.username);
+      setter(data.username ? data.username:null);
+      return data.status
   } catch (error) {
       console.log(error)
   }
@@ -162,5 +164,5 @@ export const deleteUser = async (username) => {
 export const loginWithToken = async (cookie, logUserIn) => {
   const user = await authCheck(cookie)
     logUserIn(user)
-    redirect ('/')
+    redirect ("/")
 };
