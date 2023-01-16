@@ -1,7 +1,7 @@
 import React from 'react'
 import { VscThreeBars } from "react-icons/vsc";
 import '../styles/navbar.css'
-// import DarkMode from './DarkMode';
+import DarkMode from './DarkMode';
 
 
 const ToolBar = ({openSidebar}) => {
@@ -14,7 +14,7 @@ const ToolBar = ({openSidebar}) => {
         </div>
         <div className="img"><img src={logo} alt=""/></div>
         <div className='darkmode'>
-          {/* <DarkMode/> */}
+          <DarkMode/>
         </div>
 
     </div>
