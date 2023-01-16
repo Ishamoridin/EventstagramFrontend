@@ -25,7 +25,6 @@ function App() {
     setSidebar((prevState) => !prevState);
   };
 
-  const [user, setUser] = useState()
   const [cookie, setCookie] = useState()
 
   useEffect(()=>{
@@ -37,7 +36,7 @@ function App() {
 
   const loginWithToken = async (cookie) => {
     const user = await authCheck(cookie)
-    setUser(user)
+    logUserIn(user)
     setCookie(cookie)
   };
 
