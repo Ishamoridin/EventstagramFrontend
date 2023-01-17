@@ -1,28 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { loginUser } from '../utils'
+import { loginUser } from "../utils";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/LoginModal.css";
 
-const LoginModal = ({setter, loggedInUser}) => {
+const LoginModal = ({ setUser, user }) => {
   const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
+  // const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [triedToLogin, tryToLogin] = useState(false);
+  // const [temp, setTemp] = useState();
   const navigate = useNavigate();
+
+  // const logUserIn = props.logUserIn;
+  // const loggedInUser = props.loggedInUser;
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    console.log(username);
-    console.log(email);
-    console.log(password);
-    const status = await loginUser(username, email, password, setter);
-    console.log(loggedInUser);
-    if (!loggedInUser){tryToLogin(true)}else{navigate('/')};
+    console.log(username, "username");
+    // console.log(email, "email");
+    console.log(password, "password");
+    const status = await loginUser(username, password);
+    console.log("status:", status);
+    const x = status;
+    setUser(x);
+    // console.log(loggedInUser, "logged in user");
+    // console.log(setter);
+    // console.log("status:", status);
+    // if (status === 200) {
+    //   logUserIn(username);
+    // }
+    // if (!loggedInUser) {
+    //   tryToLogin(true);
+    // } else {
+    //   navigate("/");
+    // }
   };
-  const [triedToLogin, tryToLogin] = useState(false)
+  useEffect(() => {
+    console.log(user, "logged in user");
+    if (!user) {
+      tryToLogin(true);
+    } else {
+      navigate("/");
+    }
+  }, [user]);
   return (
     <div className="outerContainer">
-    <p className="pleaseTryAgain" style={{visibility: triedToLogin ? 'visible' : 'hidden' }}>Please Try Again</p>
       <div className="innerContainer">
         <form onSubmit={submitHandler} className="form">
           <label className="username">
@@ -33,13 +56,13 @@ const LoginModal = ({setter, loggedInUser}) => {
             />
           </label>
           <br></br>
-          <label className="email">
+          {/* <label className="email">
             Email:
             <input
               onChange={(event) => setEmail(event.target.value)}
               required
             />
-          </label>
+          </label> */}
           <br></br>
           <label className="password">
             Password:
@@ -51,11 +74,23 @@ const LoginModal = ({setter, loggedInUser}) => {
           </label>
           <br></br>
           <div className="buttons">
-            <button type="submit" className="login">Login</button>
+            <button type="submit" className="login">
+              Login
+            </button>
           </div>
         </form>
-        <Link to="/SignUp"><button type="submit" className="signUp">Sign Up</button></Link>
+        <Link to="/SignUp">
+          <button type="submit" className="signUp">
+            Sign Up
+          </button>
+        </Link>
       </div>
+      <p
+        className="pleaseTryAgain"
+        style={{ visibility: triedToLogin ? "visible" : "hidden" }}
+      >
+        Please Try Again
+      </p>
     </div>
   );
 };

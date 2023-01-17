@@ -3,35 +3,40 @@ import { useState } from "react";
 import { createEvent } from "../utils";
 import "../styles/CreateEvent.css";
 
-const CreateEvent = ({ loggedInUser }) => {
+const CreateEvent = (props) => {
   const [eventName, setEventName] = useState();
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
   const [description, setDescription] = useState();
   const [location, setLocation] = useState();
   const [capacity, setCapacity] = useState();
-  const [instance, setInstance] = useState();
+
+  const loggedInUser = props.user;
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(eventName);
-    console.log(startTime);
-    console.log(endTime);
-    console.log(description);
-    console.log(location);
-    console.log(capacity);
-    console.log(instance);
+    console.log("event name:", eventName);
+    console.log("start time:", startTime);
+    console.log("end time:", endTime);
+    console.log("description:", description);
+    console.log("location:", location);
+    console.log("capacity:", capacity);
 
-    await createEvent(
-      eventName,
-      startTime,
-      endTime,
-      description,
-      location,
-      capacity,
-      instance,
-      loggedInUser
-    );
+    console.log("logged in user on create event", loggedInUser);
+
+    const event = {
+      eventName: eventName,
+      startTime: startTime,
+      endTime: endTime,
+      description: description,
+      location: location,
+      capacity: capacity,
+      eventOwner: loggedInUser,
+    };
+
+    console.log("event obj:", event);
+
+    await createEvent(event);
   };
 
   return (
@@ -65,10 +70,10 @@ const CreateEvent = ({ loggedInUser }) => {
 
         <br />
 
-        <div className="instance-container">
+        {/* <div className="instance-container">
           <label className="instance-label">Instance:</label>
           <input type="number" onChange={(e) => setInstance(e.target.value)} />
-        </div>
+        </div> */}
 
         <br />
 

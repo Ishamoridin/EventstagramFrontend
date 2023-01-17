@@ -28,7 +28,7 @@ const Home = () => {
               //   <p className="location">{post.location}</p>
               //   <p className="start-time">{post.startTime}</p>
               // </div>
-              <EventCard post={post} />
+              <EventCard post={post} key={post.id} />
             ))}
           </div>
         ) : (

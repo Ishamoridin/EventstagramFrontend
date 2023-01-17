@@ -1,24 +1,24 @@
-import React from 'react';
-import './App.css';
-import { useState, useEffect } from 'react';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from './Pages/Home';
-import UserProfile from './Pages/UserProfile';
-import LoginModal from './Components/LoginModal';
-import SignUpModal from './Components/SignUpModal';
-import EventPage from './Pages/EventPage';
-import PostEvent from './Pages/PostEvent';
-import ToolBar from './Components/ToolBar';
-import Sidebar from './Components/Sidebar';
-import Backdrop from './Components/Backdrop';
+import React from "react";
+import "./App.css";
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import UserProfile from "./Pages/UserProfile";
+import LoginModal from "./Components/LoginModal";
+import SignUpModal from "./Components/SignUpModal";
+import EventPage from "./Pages/EventPage";
+import PostEvent from "./Pages/PostEvent";
+import ToolBar from "./Components/ToolBar";
+import Sidebar from "./Components/Sidebar";
+import Backdrop from "./Components/Backdrop";
+import { authCheck } from "./utils";
 
-import { getCookie } from './common'
-import { loginWithToken } from './utils'
-
-
+import { getCookie } from "./common";
+// import { loginWithToken } from "./utils";
 
 function App() {
-  const [loggedInUser, logUserIn] = useState(null);
+  const [user, setUser] = useState();
+  const [bigUser, setBigUser] = useState();
 
   const [sidebar, setSidebar] = useState(false);
   const toggleSidebar = () => {
@@ -27,12 +27,26 @@ function App() {
 
   //const [cookie, setCookie] = useState()
 
-  useEffect(()=>{
-    let cookie = getCookie('jwt_token')
-    if (cookie !== false) {
-      loginWithToken(cookie, logUserIn)
-    };
-  }, [])
+  useEffect(() => {
+    let cookie = getCookie("jwt_token");
+    console.log("cookie:", cookie);
+    if (cookie) {
+      loginWithToken(cookie);
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(user, "logged in user");
+    setBigUser(user);
+  }, [user]);
+
+  const loginWithToken = async (cookie) => {
+    const newUser = await authCheck(cookie);
+
+    console.log("user:", newUser);
+    // logUserIn(user);
+    setUser(newUser);
+  };
 
   // if (loggedInUser === null) {
   //   return <Navigate replace to="/login" />;
@@ -40,53 +54,27 @@ function App() {
   //   return ();
   //   }
 
-
   return (
     <div className="App">
-
       <BrowserRouter>
-
         <ToolBar openSidebar={toggleSidebar} />
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
-        <Sidebar 
-          sidebar={sidebar}
-          logUserIn={logUserIn}
-           />
+        <Sidebar sidebar={sidebar} />
         <Routes>
           <Route
-          path='/Login'
-          element={<LoginModal           
-            setter={logUserIn}
-            loggedInUser={loggedInUser}
-          />}
+            path="/Login"
+            element={<LoginModal setUser={setUser} user={user} />}
           />
 
-          <Route
-          path='/SignUp'
-          element={<SignUpModal />}
-          />
+          <Route path="/SignUp" element={<SignUpModal />} />
 
-          <Route
-           path="/"
-           element={<Home />} 
-          />
+          <Route path="/" element={<Home user={bigUser} />} />
 
-          <Route
-            path="/UserProfile"
-            element={<UserProfile loggedInUser={loggedInUser} />}
-          />
-          <Route
-            path="/EventPage"
-            element={<EventPage loggedInUser={loggedInUser} />}
-          />
-          <Route
-            path="/PostEvent"
-            element={<PostEvent loggedInUser={loggedInUser} />}
-          />
+          <Route path="/UserProfile" element={<UserProfile user={bigUser} />} />
+          <Route path="/EventPage" element={<EventPage user={bigUser} />} />
+          <Route path="/PostEvent" element={<PostEvent user={bigUser} />} />
         </Routes>
-
       </BrowserRouter>
-
     </div>
   );
 }

@@ -1,7 +1,7 @@
-
 // export async function updateMap() {};
 
-import { redirect } from "react-router-dom";
+// import { redirect } from "react-router-dom";
+import { writeCookie } from "../common/index";
 
 // export async function updateWeather() {};
 export async function getGeolocationFromLocationString(location) {
@@ -19,40 +19,26 @@ export async function getGeolocationFromLocationString(location) {
 }
 
 // create event:
-export const createEvent = async (
-  eventName,
-  startTime,
-  endTime,
-  description,
-  location,
-  capacity,
-  instance,
-  eventOwner
-) => {
+export const createEvent = async (event) => {
+  // console.log("test");
+  console.log(event);
   try {
     // fetch request for createEvent
+    // const response = await fetch(process.env.REACT_APP_RENDER_URL + "login",
     const response = await fetch(
       process.env.REACT_APP_RENDER_URL + "createEvent",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          referrerPolicy: "origin",
+          // referrerPolicy: "origin",
         },
-        body: JSON.stringify({
-          eventName: eventName,
-          startTime: startTime,
-          endTime: endTime,
-          description: description,
-          location: location,
-          capacity: capacity,
-          instance: instance,
-          eventOwner: eventOwner,
-        }),
+        body: JSON.stringify(event),
       }
     );
+    console.log("event response:", response);
     const eventData = await response.json();
-    console.log(eventData);
+    console.log("event data:", eventData);
     return eventData;
   } catch (error) {
     console.log(error);
@@ -74,7 +60,7 @@ export const readEvents = async () => {
       }
     );
     const data = await response.json();
-    return data;
+    return data.result;
   } catch (error) {
     console.log(error);
   }
@@ -128,122 +114,145 @@ export const deleteEvent = async (id) => {
 
 //CRUD Functionality for Users
 export const createUser = async (username, email, password) => {
-  console.log(process.env.REACT_APP_RENDER_URL+"createUser")
+  console.log(process.env.REACT_APP_RENDER_URL + "createUser");
   try {
-      const response = await fetch(process.env.REACT_APP_RENDER_URL+"createUser", {
-          method: "POST",
-          headers: {
-              "Content-Type" : "application/json"
-          },
-          body: JSON.stringify({
-              "username" : username,
-              "email" : email,
-              "password" : password
-          })
-      })
-      const data = await response.json()
-      console.log(data)
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "createUser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          referrerPolicy: "origin",
+        },
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
-      console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const readUser = async () => {
   try {
-      const response = await fetch(process.env.REACT_APP_RENDER_URL+"readUsers", {
-          method: "GET",
-          headers: {
-              "Content-Type" : "application/json"
-          }
-      })
-      const data = await response.json()
-      const usernames = data.users.map(users => users.username)
-      return usernames
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "readUsers",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    const usernames = data.users.map((users) => users.username);
+    return usernames;
   } catch (error) {
-      console.log(error)
+    console.log(error);
   }
-}
+};
 
-export const loginUser = async (username, email, password, setter) => {
+export const loginUser = async (username, password) => {
   try {
-      const response = await fetch(process.env.REACT_APP_RENDER_URL+"login", {
-          method: "POST",
-          headers: {
-              "Content-Type" : "application/json"
-          },
-          body: JSON.stringify({
-              username : username,
-              email : email,
-              password : password
-          })
-      })
-      console.log(response)
-      const data = await response.json()
-      console.log(data);
-      setter(data.username ? data.username:null);
-      return data.status
+    const response = await fetch(process.env.REACT_APP_RENDER_URL + "login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // referrerPolicy: "origin",
+      },
+      body: JSON.stringify({
+        username: username,
+        // email: email,
+        password: password,
+      }),
+    });
+    console.log("response:", response);
+    const data = await response.json();
+    console.log("data:", data);
+    console.log("data.username:", data.username);
+    // logUserIn(data.username);
+    // logUserIn(data.username ? data.username : null);
+    writeCookie("jwt_token", data.token, 7);
+    return data.username;
+    // return response.status;
   } catch (error) {
-      console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const authCheck = async (jwtToken) => {
   try {
-      const response = await fetch(process.env.REACT_APP_RENDER_URL+"authCheck", {
-          method: "GET",
-          headers: {
-              "Content-Type" : "application/json",
-              "Authorization" : `Bearer ${jwtToken}`
-          }
-      })
-      const data = await response.json()
-      console.log(data)
-      return data.username
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "authCheck",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    return data.username;
   } catch (error) {
-      console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const updateUser = async (username, key, value) => {
   try {
-      const response = await fetch(process.env.REACT_APP_RENDER_URL+"updateUser", {
-          method: "PUT",
-          headers: {
-              "Content-Type" : "application/json"
-          },
-          body: JSON.stringify({
-              "username" : username,
-              "key" : key,
-              "value" : value
-          })
-      })
-      const data = await response.json()
-      console.log(data)
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "updateUser",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          key: key,
+          value: value,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
-      console.log(error)        
+    console.log(error);
   }
-}
+};
 
 export const deleteUser = async (username) => {
   try {
-      const response = await fetch(process.env.REACT_APP_RENDER_URL+"deleteUser", {
-          method: "DELETE",
-          headers: {
-              "Content-Type" : "application/json"
-          },
-          body: JSON.stringify({
-              "username" : username
-          })
-      })
-      const data = await response.json()
-      console.log(data)
+    const response = await fetch(
+      process.env.REACT_APP_RENDER_URL + "deleteUser",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+        }),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
-      console.log(error)
+    console.log(error);
   }
 };
 
-export const loginWithToken = async (cookie, logUserIn) => {
-  const user = await authCheck(cookie)
-    logUserIn(user)
-    redirect ("/")
-};
+// export const loginWithToken = async (cookie, logUserIn) => {
+//   const user = await authCheck(cookie);
+//   console.log(user);
+//   // logUserIn(user);
+//   logUserIn(user ? user : null);
+//   redirect("/");
+// };

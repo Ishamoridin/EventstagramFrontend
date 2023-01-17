@@ -1,9 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-const EventPage = ({ id }) => {
+const EventPage = () => {
   const location = useLocation();
   console.log(location);
+  const currentEvent = location.state.event.post;
 
   return (
     <div>
@@ -13,32 +14,28 @@ const EventPage = ({ id }) => {
           <div className="event-listing-container">
             <div className="event-name-container">
               <p>Event Name:</p>
-              <p>{location.eventName}</p>
+              <p>{currentEvent.eventName}</p>
             </div>
 
             <div className="event-description-container">
               <p>Description:</p>
-              <p>{location.state.description}</p>
+              <p>{currentEvent.description}</p>
             </div>
 
             <div className="event-location-container">
               <p>Location:</p>
-              <p>{location.state.location}</p>
+              <p>{currentEvent.location}</p>
             </div>
 
             <div className="event-capacity-container">
               <p>Capacity:</p>
-              <p>{location.state.capacity}</p>
+              <p>{currentEvent.capacity}</p>
             </div>
 
             <div className="date-time-container">
               <p>Date & Time:</p>
-              <p>{location.state.startTime}</p>
-              <p>{location.state.endTime}</p>
-            </div>
-
-            <div className="instance-container">
-              <p>This event has been hosted {location.state.instance} times.</p>
+              <p>{currentEvent.startTime}</p>
+              <p>{currentEvent.endTime}</p>
             </div>
           </div>
         ) : (
