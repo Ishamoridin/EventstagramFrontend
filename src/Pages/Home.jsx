@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
 
 const Home = () => {
-  const [events, setEvents] = useState();
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     loadEvents();
@@ -28,7 +28,7 @@ const Home = () => {
               //   <p className="location">{post.location}</p>
               //   <p className="start-time">{post.startTime}</p>
               // </div>
-              <EventCard post={post} />
+              <EventCard post={post} key={post.id} />
             ))}
           </div>
         ) : (

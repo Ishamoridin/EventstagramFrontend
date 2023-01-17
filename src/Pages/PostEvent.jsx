@@ -1,10 +1,10 @@
 import React from "react";
 import CreateEvent from "../Components/CreateEvent";
 
-const PostEvent = () => {
+const PostEvent = ({ user }) => {
   return (
     <div className="postevent-screen-wrapper">
-      <CreateEvent />
+      <CreateEvent user={user} />
     </div>
   );
 };
