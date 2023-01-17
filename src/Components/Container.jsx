@@ -12,13 +12,15 @@ function Container() {
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState)
     }
+    const [ logUserIn] = useState(null);
+    
   
     return (
         
         <div className={darkMode ? `Container Container-dark` : `Container Container-light`}>
             <ToolBar openSidebar={toggleSidebar}/>
             <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
-            <Sidebar sidebar={sidebar}/>
+            <Sidebar sidebar={sidebar} logUserIn={logUserIn}/>
 
            {/* <h1>Eventstagram</h1>  */}
         </div>
