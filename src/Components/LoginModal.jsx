@@ -43,7 +43,7 @@ const LoginModal = ({ setUser, user }) => {
     } else {
       navigate("/");
     }
-  }, [user]);
+  }, [user, navigate]);
   return (
     <div className="outerContainer">
       <div className="innerContainer">
