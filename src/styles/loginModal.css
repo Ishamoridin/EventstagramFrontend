@@ -3,9 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
-    height: 100vh;
-    width: 100%;
+.Container {
+    /* height: 100vh;
+    width: 100%; */
     background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%);
 }
 .outerContainer{
@@ -68,3 +68,13 @@ body {
     border: none;
     background-color: #f4a261;
 }
+
+.Container-dark{
+    background-color: #000;
+    color: aliceblue;
+  }
+
+  .Container-light{
+    background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%);
+  }
+  

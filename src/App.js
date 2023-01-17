@@ -4,12 +4,11 @@ import { useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './Pages/Home';
 import UserProfile from './Pages/userProfile';
-import LoginModal from './Components/loginModal';
+// import LoginModal from './Components/loginModal';
 import EventPage from './Pages/eventPage';
-import ToolBar from './Components/ToolBar';
-import Sidebar from './Components/Sidebar';
-import Backdrop from './Components/Backdrop';
 import PostEvent from './Pages/PostEvent';
+import { DarkModeProvider } from './context/DarkModeContext';
+import Container from './Components/Container';
 
 
 
@@ -17,18 +16,13 @@ import PostEvent from './Pages/PostEvent';
 
 function App() {
   const [loggedInUser, logUserIn] = useState(null);
-  const[sidebar, setSidebar] = useState(false);
-  const toggleSidebar = () => {
-      setSidebar((prevState) => !prevState)
-  }
 
   return (
-    <useDarkMode>
     <div className="App">
+
+      <DarkModeProvider>
       <BrowserRouter>
-        <ToolBar openSidebar={toggleSidebar}/>
-        <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar}/>
-        <Sidebar sidebar={sidebar}/>
+        <Container/>
 
         {/* <LoginModal 
         loginUser={logUserIn}
@@ -53,8 +47,8 @@ function App() {
           />
         </Routes> 
       </BrowserRouter>
+      </DarkModeProvider>
     </div>
-    </useDarkMode>
   );
 };
 

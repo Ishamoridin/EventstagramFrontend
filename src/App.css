@@ -30,3 +30,12 @@
   margin-right: 15px;
   direction: rtl;
 }
+
+.Container-dark{
+  background-color: #000;
+  color: aliceblue;
+}
+.Container-light{
+  background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%);
+}
+
