@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { loginUser } from "../utils";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../images/loginBackground.jpg";
+import appLogo from "../images/webAppLogo.png";
 import "../styles/LoginModal.css";
 
 const LoginModal = ({ setUser, user }) => {
@@ -46,11 +48,14 @@ const LoginModal = ({ setUser, user }) => {
   }, [user, navigate]);
   return (
     <div className="outerContainer">
+      <img src={logo} className="background" alt="Background Image" />
       <div className="innerContainer">
+        <img src={appLogo} className="appLogo" alt="Application Logo" />
         <form onSubmit={submitHandler} className="form">
           <label className="username">
             Username:
             <input
+              type="username" placeholder="Enter Username"
               onChange={(event) => setUsername(event.target.value)}
               required
             />
@@ -67,7 +72,7 @@ const LoginModal = ({ setUser, user }) => {
           <label className="password">
             Password:
             <input
-              type="password"
+              type="password" placeholder="Enter Password"
               onChange={(event) => setPassword(event.target.value)}
               required
             />
@@ -84,13 +89,13 @@ const LoginModal = ({ setUser, user }) => {
             Sign Up
           </button>
         </Link>
-      </div>
-      <p
+        <p
         className="pleaseTryAgain"
         style={{ visibility: triedToLogin ? "visible" : "hidden" }}
-      >
+        >
         Please Try Again
-      </p>
+        </p>
+      </div>
     </div>
   );
 };

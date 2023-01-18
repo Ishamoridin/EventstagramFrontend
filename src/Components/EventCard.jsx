@@ -1,15 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router";
 
-const EventCard = (event) => {
+const EventCard = ({ id }) => {
   // function to navigate to event listing when clicked:
-  const id = event.post.id;
   const navigate = useNavigate();
   const handleClick = () => {
     console.log("event card clicked with event.id", id);
-    navigate("/EventPage", { state: { event } });
+    navigate("/EventPage", {
+      state: { id: Event.id },
+    });
   };
-  console.log(event);
+
+
   // function to navigate to user page when username clicked:
   // const userNavigate = useNavigate();
   // const userClick = () => {
@@ -21,13 +23,9 @@ const EventCard = (event) => {
 
   try {
     return (
-      <div
-        className="event-card"
-        key={event.post.id}
-        onClick={() => handleClick()}
-      >
+      <div className="event-card" onClick={() => handleClick()}>
         <div>
-          <p className="event-name">{event.post.eventName}</p>
+          <p className="event-name">{id.eventName}</p>
         </div>
         <div className="img-wrapper">
           {/*Map image?:*/}
@@ -37,8 +35,8 @@ const EventCard = (event) => {
           {/* <p className="username" onClick={() => userClick()}>
             {User.username}
           </p> */}
-          <p className="location">{event.post.location}</p>
-          <p className="start-time-text">{event.post.startTime}</p>
+          <p className="location">{id.location}</p>
+          <p className="start-time-text">{id.startTime}</p>
         </div>
       </div>
     );
