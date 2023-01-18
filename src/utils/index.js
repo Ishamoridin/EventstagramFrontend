@@ -1,6 +1,7 @@
 // export async function updateMap() {};
 
 // import { redirect } from "react-router-dom";
+// import { json } from "react-router-dom";
 import { writeCookie } from "../common/index";
 
 // export async function updateWeather() {};
@@ -138,15 +139,18 @@ export const createUser = async (username, email, password) => {
   }
 };
 
-export const readUser = async () => {
+export const readUser = async (username) => {
+  let filter = {};
+  if (username) {filter.username = username}
   try {
     const response = await fetch(
       process.env.REACT_APP_RENDER_URL + "readUsers",
       {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({filter})
       }
     );
     const data = await response.json();
@@ -252,7 +256,7 @@ export const deleteUser = async (username) => {
 // export const loginWithToken = async (cookie, logUserIn) => {
 //   const user = await authCheck(cookie);
 //   console.log(user);
-//   // logUserIn(user);
+// logUserIn(user);
 //   logUserIn(user ? user : null);
 //   redirect("/");
 // };

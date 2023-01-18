@@ -2,11 +2,11 @@ import React from "react";
 import ReadUser from "../Components/ReadUser";
 
 
-const UserProfile = ({ loggedInUser }) => {
+const UserProfile = ({ user }) => {
   return (
     <div>
-      {loggedInUser ? (
-        <ReadUser loggedInUser={loggedInUser} />
+      {user ? (
+        <ReadUser loggedInUser={user} />
       ) : (
         <h3>Please Log In</h3>
       )}
