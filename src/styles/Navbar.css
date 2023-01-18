@@ -25,10 +25,12 @@
 .tool-bar {
   /* background: rgb(77, 220, 206); */
   /* background-color: #65ccb8; */
-  background-color: #57ba98;
+  /* background-color: #57ba98; */
+  background-color: #182628;
   /* color: #fff; */
-  color: #182628;
+  /* color: #182628; */
   /* color: #f2f2f2; */
+  color: #65ccb8;
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -39,13 +41,19 @@
   padding: 1rem;
 }
 
+.tool-bar a {
+  text-decoration: none;
+  color: #65ccb8;
+}
+
 .sidebar {
   position: absolute;
   /* background: rgb(77, 220, 206); */
   /* background-color: #65ccb8; */
-  background-color: #57ba98;
+  /* background-color: #57ba98; */
+  background-color: #182628;
   /* color: #fff; */
-  color: #182628;
+  /* color: #182628; */
   /* color: #f2f2f2; */
   top: 0;
   left: 0;
@@ -65,18 +73,21 @@
   align-items: center;
   gap: 1rem;
   font-size: 22px;
+  color: #65ccb8;
   /* color: #f2f2f2; */
-  color: #182628;
+  /* color: #182628; */
 }
 
 .sidebar li a {
   text-decoration: none;
-  color: #182628;
+  /* color: #182628; */
+  color: #65ccb8;
   /* color: #f2f2f2; */
 }
 
 .sidebar li:hover {
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
+  background-color: #3b945e;
   color: #182628;
 
   /* color: rgb(77, 220, 206); */
