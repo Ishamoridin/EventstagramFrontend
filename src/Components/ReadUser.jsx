@@ -16,9 +16,10 @@ const ReadUser = ({ loggedInUser }) => {
       else {
             response = null
           }
-      return response
+      return response.users[0]
         }
-        userInfo.current = fetchUser()
+        userInfo.current = fetchUser();
+        console.log(userInfo)
       }
   , [loggedInUser])
 
