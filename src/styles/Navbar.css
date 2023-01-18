@@ -1,6 +1,6 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /* .top-nav{
@@ -22,78 +22,88 @@
     margin-right: 95%;
 } */
 
-.tool-bar{
-    background: rgb(77, 220, 206);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    object-fit: contain;
-    border: 1px solid lightgray;
-    gap: 1rem;
-    align-items: center;
-    padding: 1rem;
+.tool-bar {
+  /* background: rgb(77, 220, 206); */
+  /* background-color: #65ccb8; */
+  background-color: #57ba98;
+  /* color: #fff; */
+  color: #182628;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  object-fit: contain;
+  border: 1px solid lightgray;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
 }
 
-.sidebar{
-    position: absolute;
-    background: rgb(77, 220, 206);
-    color: #fff;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 280px;
-    transform: translate(-100%);
-    transition: all 0.4s;
+.sidebar {
+  position: absolute;
+  /* background: rgb(77, 220, 206); */
+  /* background-color: #65ccb8; */
+  background-color: #57ba98;
+  /* color: #fff; */
+  color: #182628;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 280px;
+  transform: translate(-100%);
+  transition: all 0.4s;
 }
 
-
-
-.sidebar li{
-    list-style: none;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 22px;
-    
+.sidebar li {
+  list-style: none;
+  padding: 1rem 2rem;
+  /* border-bottom: 1px solid lightgray; */
+  /* border-bottom: 1px solid #f2f2f2; */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 22px;
 }
 
-.sidebar li:hover{
-    background-color: #fff;
-    color: rgb(77, 220, 206);
+.sidebar li a {
+  text-decoration: none;
+  color: #182628;
 }
 
-.sidebar--open{
-    transform: translate(0%);
+.sidebar li:hover {
+  background-color: #f2f2f2;
+  /* color: rgb(77, 220, 206); */
 }
 
-
-.backdrop{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: none;
+.sidebar--open {
+  transform: translate(0%);
+  min-height: 100%;
 }
 
-.backdrop--open{
-    display: block;
-    scroll-behavior: smooth;
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
 }
 
-.title{
-    justify-items: center;
-    font-size: 30px;
+.backdrop--open {
+  display: block;
+  scroll-behavior: smooth;
 }
 
-.toggleoff{
-    position: absolute;
-    margin-left: 40%;
+.title {
+  justify-items: center;
+  font-size: 30px;
 }
-.bar{
-    position: absolute;
-    margin-right: 96%;
+
+.toggleoff {
+  position: absolute;
+  margin-left: 40%;
+}
+.bar {
+  position: absolute;
+  margin-right: 96%;
 }
