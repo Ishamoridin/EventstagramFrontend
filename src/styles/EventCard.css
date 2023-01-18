@@ -1,0 +1,59 @@
+.event-card-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 10vh 3vw 10vh 3vw;
+}
+
+.event-card {
+  display: flex;
+  /* flex: 1 1 25%; */
+  flex: 0 1 auto;
+  flex-direction: column;
+  background-color: #65ccb8;
+  min-height: 100%;
+  min-width: 22vh;
+  margin: 15px;
+  padding: 30px 15px;
+  color: #182628;
+  border-radius: 0.5rem;
+}
+
+.event-card:hover {
+  cursor: pointer;
+}
+
+.event-card .event-name-wrapper {
+  /* margin: 10px 0; */
+  font-weight: 620;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+.event-card .event-name-wrapper .event-name {
+  text-decoration: underline;
+}
+
+.location-wrapper {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+/* .location-wrapper .location {
+  margin-left: 8px;
+} */
+
+.start-time-wrapper {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.username-wrapper {
+  display: flex;
+}
+
+.username-wrapper .username {
+  font-weight: 550;
+  text-decoration: underline;
+}

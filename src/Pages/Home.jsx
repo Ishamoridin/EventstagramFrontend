@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <h2>Home</h2>
+      {/* <h2>Home</h2> */}
       <div className="home-wrapper">
         {events?.length > 0 ? (
           <div className="event-card-container">
