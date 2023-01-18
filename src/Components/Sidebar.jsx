@@ -3,8 +3,9 @@ import { VscHome } from "react-icons/vsc";
 import { MdEvent } from "react-icons/md";
 import { MdOutlineCreate } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
-import { Link } from 'react-router-dom';
-import '../styles/Navbar.css'
+import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
+
 
 
 
