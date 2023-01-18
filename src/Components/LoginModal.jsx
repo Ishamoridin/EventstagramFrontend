@@ -48,9 +48,9 @@ const LoginModal = ({ setUser, user }) => {
   }, [user, navigate]);
   return (
     <div className="outerContainer">
-      <img src={logo} className="background" alt="Background Image" />
+      <img src={logo} className="background" alt="A background of balloons in turkey" />
       <div className="innerContainer">
-        <img src={appLogo} className="appLogo" alt="Application Logo" />
+        <img src={appLogo} className="appLogo" alt="The application"/>
         <form onSubmit={submitHandler} className="form">
           <label className="username">
             Username:
