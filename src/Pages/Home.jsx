@@ -2,6 +2,7 @@ import React from "react";
 import { readEvents } from "../utils";
 import { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
+import "../styles/Home.css";
 
 const Home = () => {
   const [events, setEvents] = useState([]);
