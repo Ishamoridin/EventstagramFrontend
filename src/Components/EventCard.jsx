@@ -66,7 +66,7 @@ const EventCard = (event) => {
             </p>
           </div>
           <div className="username-wrapper">
-            <p>Hosted By: </p>&nbsp;
+            <p className="hosted-by">Hosted By: </p>&nbsp;
             <p className="username" onClick={() => userClick()}>
               @{event.post.eventOwner}
             </p>

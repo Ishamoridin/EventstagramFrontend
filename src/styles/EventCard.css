@@ -56,9 +56,13 @@
   border-radius: 0.5rem; */
 }
 
+/* .text-wrapper {
+  min-height: 100%;
+} */
+
 .location-wrapper {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 /* .location-wrapper .location {
@@ -67,14 +71,21 @@
 
 .start-time-wrapper {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 .username-wrapper {
   display: flex;
+  margin-top: 30px;
 }
 
 .username-wrapper .username {
   font-weight: 550;
   text-decoration: underline;
+  width: max-content;
+  /* min-width: max-content; */
+}
+
+.username .hosted-by p {
+  min-width: 50%;
 }

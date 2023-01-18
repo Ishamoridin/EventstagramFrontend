@@ -1,1 +1,10 @@
+.event-page-wrapper {
+  height: 100%;
+  min-height: 100vh;
+  margin: 10vh 3vw 10vh 3vw;
+}
 
+.event-listing-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
