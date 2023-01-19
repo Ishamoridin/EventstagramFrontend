@@ -12,8 +12,8 @@ const EventCard = (event) => {
   };
   console.log(event);
   // function to navigate to user page when username clicked:
-  const user = event.post.eventOwner;
-  const userNavigate = useNavigate();
+  // const user = event.post.eventOwner;
+  // const userNavigate = useNavigate();
   // const userClick = () => {
   //   console.log("username clicked with user.id", user.id);
   //   userNavigate("/UserProfile", {
