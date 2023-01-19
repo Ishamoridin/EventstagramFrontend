@@ -125,12 +125,14 @@ const EventPage = () => {
               </div>
               <div className="weather-icon">
                 <img
-                  src={weatherIcon ? weatherIcon : "Waiting"}
+                  height="50px"
+                  width="50px"
+                  src={weatherIcon ? weatherIcon : "https://static.vecteezy.com/system/resources/previews/000/582/158/original/hourglass-icon-vector-illustration.jpg"}
                   alt="weather icon"
                 />
               </div>
               <div className="weather-condition">
-                <p>{weatherCondition ? weatherCondition : "https://static.vecteezy.com/system/resources/previews/000/582/158/original/hourglass-icon-vector-illustration.jpg"}</p>
+                <p>{weatherCondition ? weatherCondition : "Forecast available up to 14 days before event start"}</p>
               </div>
             </div>
           </div>
