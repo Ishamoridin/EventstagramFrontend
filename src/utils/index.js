@@ -211,21 +211,21 @@ export const authCheck = async (jwtToken) => {
   }
 };
 
-export const updateUser = async (newUser, filter) => {
+export const updateUser = async (userObj, filter) => {
   try {
     const response = await fetch(
       process.env.REACT_APP_RENDER_URL + "updateUser",
       {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newUser, filter
-        ),
+        body: JSON.stringify({userObj, userFilter: filter
+        }),
       }
     );
     const data = await response.json();
-    console.log(data);
+    console.log("data", data);
   } catch (error) {
     console.log(error);
   }

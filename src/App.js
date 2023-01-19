@@ -70,7 +70,7 @@ function App() {
 
           <Route path="/" element={<Home user={bigUser} />} />
 
-          <Route path="/UserProfile" element={<UserProfile bigUser={bigUser} />} />
+          <Route path="/UserProfile" element={<UserProfile bigUser={bigUser} setUser={setUser} />} />
           <Route path="/EventPage" element={<EventPage user={bigUser} />} />
           <Route path="/PostEvent" element={<PostEvent user={bigUser} />} />
         </Routes>
