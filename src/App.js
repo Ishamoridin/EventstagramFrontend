@@ -68,6 +68,7 @@ function App() {
           sidebar={sidebar} 
           setBigUser={setBigUser} 
           setUser={setUser} 
+          bigUser={bigUser}
           // style={{ visibility: bigUser ? "visible" : "hidden" }}
         />
         <Routes>

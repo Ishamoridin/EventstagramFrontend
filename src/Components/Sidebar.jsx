@@ -8,13 +8,13 @@ import "../styles/Navbar.css";
 
 
 
-const Sidebar = ({sidebar, setUser}) => {
+const Sidebar = ({sidebar, setUser, bigUser}) => {
     return (
     <div className={sidebar?"sidebar sidebar--open":"sidebar"}>
         <li><i><VscHome/></i><Link to="/Home">Home</Link></li>
         <li><i><MdOutlineCreate/></i><Link to="/PostEvent">PostEvent</Link></li>
         <li><i><CiUser/></i><Link to="/UserProfile">Profile</Link></li>
-        <li><i><CiUser/></i><Link onClick={() => setUser(null)} to="/">Logout</Link></li>
+        <li><i><CiUser/></i><Link onClick={() => setUser(null)} to="/">{bigUser ? "Logout" : "Login"}</Link></li>
         </div>
   )
 
