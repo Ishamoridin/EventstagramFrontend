@@ -6,7 +6,7 @@ import logo from "../images/loginBackground.jpg";
 import appLogo from "../images/webAppLogo.png";
 import "../styles/LoginModal.css";
 
-const LoginModal = ({ setUser, user }) => {
+const LoginModal = ({ setUser, user, bigUser }) => {
   const [username, setUsername] = useState();
   // const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -39,18 +39,17 @@ const LoginModal = ({ setUser, user }) => {
     // }
   };
   useEffect(() => {
-    console.log(user, "logged in user");
-    if (!user) {
+    if (!bigUser) {
       tryToLogin(true);
     } else {
       navigate("/");
     }
-  }, [user, navigate]);
+  }, [bigUser, navigate]);
   return (
     <div className="outerContainer">
-      <img src={logo} className="background" alt="Background Image" />
+      <img src={logo} className="background" alt="A background of balloons in turkey" />
       <div className="innerContainer">
-        <img src={appLogo} className="appLogo" alt="Application Logo" />
+        <img src={appLogo} className="appLogo" alt="The application"/>
         <form onSubmit={submitHandler} className="form">
           <label className="username">
             Username:

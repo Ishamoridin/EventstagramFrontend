@@ -7,6 +7,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
+
 const Sidebar = ({ sidebar, bigUser }) => {
   const logo = require ('../images/webAppLogo.png')
 

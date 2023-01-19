@@ -2,11 +2,11 @@ import React from "react";
 import ReadUser from "../Components/ReadUser";
 
 
-const UserProfile = ({ user }) => {
+const UserProfile = ({ bigUser, setUser }) => {
   return (
     <div>
-      {user ? (
-        <ReadUser loggedInUser={user} />
+      {bigUser ? (
+        <ReadUser bigUser={bigUser} setUser={setUser}/>
       ) : (
         <h3>Please Log In</h3>
       )}

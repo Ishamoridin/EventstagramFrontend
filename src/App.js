@@ -59,18 +59,18 @@ function App() {
       <BrowserRouter>
         <ToolBar openSidebar={toggleSidebar} />
         <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
-        <Sidebar sidebar={sidebar} />
+        <Sidebar sidebar={sidebar} setBigUser={setBigUser} setUser={setUser}/>
         <Routes>
           <Route
             path="/Login"
-            element={<LoginModal setUser={setUser} user={user} />}
+            element={<LoginModal setUser={setUser} user={user} bigUser={bigUser}/>}
           />
 
           <Route path="/SignUp" element={<SignUpModal />} />
 
           <Route path="/" element={<Home user={bigUser} />} />
 
-          <Route path="/UserProfile" element={<UserProfile user={bigUser} />} />
+          <Route path="/UserProfile" element={<UserProfile bigUser={bigUser} setUser={setUser} />} />
           <Route path="/EventPage" element={<EventPage user={bigUser} />} />
           <Route path="/PostEvent" element={<PostEvent user={bigUser} />} />
         </Routes>

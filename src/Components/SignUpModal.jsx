@@ -21,9 +21,9 @@ const SignUpModal = () => {
 
     return (
         <div className="outerContainer">
-            <img src={logo} className="background" />
+            <img src={logo} className="background" alt="A background of balloons in Turkey" />
             <div className="innerContainer">
-            <img src={appLogo} className="appLogo" />
+            <img src={appLogo} className="appLogo" alt="The Application" />
                 <form onSubmit={submitHandler}>
                     <label>Username:
                         <input placeholder="Enter Desired Username" 
