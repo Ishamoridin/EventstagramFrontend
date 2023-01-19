@@ -1,10 +1,12 @@
 import React from "react";
 import { VscThreeBars } from "react-icons/vsc";
-import { BsToggleOff } from "react-icons/bs";
+// import { BsToggleOff } from "react-icons/bs";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 
 const ToolBar = ({ openSidebar }) => {
+  const logo = require ('../images/webAppLogo.png')
+
   return (
     <div className="tool-bar">
       <div className="bar" onClick={openSidebar}>
@@ -13,13 +15,15 @@ const ToolBar = ({ openSidebar }) => {
         </i>
       </div>
       <div className="title">
-        <Link to="/">Eventstagram</Link>
+        <Link to="/">
+          <div className="img"><img src={logo} alt=""/></div>
+        </Link>
       </div>
-      <div>
+      {/* <div>
         <i className="toggleoff">
           <BsToggleOff size={35} />
         </i>
-      </div>
+      </div> */}
     </div>
   );
 };

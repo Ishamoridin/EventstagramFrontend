@@ -10,7 +10,16 @@
   color: #c7f9cc;
   color: rgba(199, 249, 204);
 }
-
+:root{
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Playfair Display', serif;
+  font-family: 'Acme', sans-serif;
+  font-family: 'Alfa Slab One', cursive;
+  font-family: 'Fredoka One', cursive;
+  font-family: 'Indie Flower', cursive;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Philosopher', sans-serif;
+}
 .App {
   /* background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%); */
   /* background-color: #182628; */
