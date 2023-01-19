@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { createEvent } from "../utils";
 import "../styles/CreateEvent.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CreateEvent = (props) => {
   const [eventName, setEventName] = useState();
