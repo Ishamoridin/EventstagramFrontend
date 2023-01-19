@@ -49,7 +49,7 @@ const SignUpModal = ({setUser}) => {
                     <br/>
                     <button type="submit" className="create">Create Account</button>
                 </form>
-                <Link to="/Login"><button className="backToLogin">Back to Login</button></Link>
+                <Link to="/"><button className="backToLogin">Back to Login</button></Link>
             </div>
         </div>
     )
