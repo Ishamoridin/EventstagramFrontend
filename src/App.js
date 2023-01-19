@@ -57,9 +57,19 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ToolBar openSidebar={toggleSidebar} />
-        <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
-        <Sidebar sidebar={sidebar} setBigUser={setBigUser} setUser={setUser}/>
+        <ToolBar 
+          openSidebar={toggleSidebar} 
+          style={{ visibility: bigUser ? "visible" : "hidden" }}
+        />
+        <Backdrop 
+          sidebar={sidebar} closeSidebar={toggleSidebar} 
+        />
+        <Sidebar 
+          sidebar={sidebar} 
+          setBigUser={setBigUser} 
+          setUser={setUser} 
+          // style={{ visibility: bigUser ? "visible" : "hidden" }}
+        />
         <Routes>
           <Route
             path="/"

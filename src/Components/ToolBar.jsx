@@ -4,9 +4,12 @@ import { BsToggleOff } from "react-icons/bs";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 
-const ToolBar = ({ openSidebar }) => {
+const ToolBar = ({ openSidebar, bigUser }) => {
   return (
-    <div className="tool-bar">
+    <div 
+      className="tool-bar"  
+      // style={{ visibility: bigUser ? "visible" : "hidden" }}
+      >
       <div className="bar" onClick={openSidebar}>
         <i>
           <VscThreeBars size={35} />

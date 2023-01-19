@@ -42,7 +42,7 @@ const LoginModal = ({ setUser, user, bigUser }) => {
   useEffect(() => {
     if (bigUser) {
       tryToLogin(false);
-      navigate("/");
+      navigate("/Home");
     }
   }, [bigUser, navigate, user]);
   return (
