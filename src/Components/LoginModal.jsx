@@ -42,6 +42,7 @@ const LoginModal = ({ setUser, user, bigUser }) => {
     if (!bigUser) {
       tryToLogin(true);
     } else {
+      tryToLogin(false);
       navigate("/");
     }
   }, [bigUser, navigate, user]);
