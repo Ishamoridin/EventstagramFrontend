@@ -2,6 +2,7 @@ import React from "react";
 import { VscThreeBars } from "react-icons/vsc";
 import { BsToggleOff } from "react-icons/bs";
 import "../styles/Navbar.css";
+import { Link } from "react-router-dom";
 
 const ToolBar = ({ openSidebar }) => {
   return (
@@ -11,7 +12,9 @@ const ToolBar = ({ openSidebar }) => {
           <VscThreeBars size={35} />
         </i>
       </div>
-      <div className="title">Eventstagram</div>
+      <div className="title">
+        <Link to="/">Eventstagram</Link>
+      </div>
       <div>
         <i className="toggleoff">
           <BsToggleOff size={35} />

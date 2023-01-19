@@ -12,32 +12,57 @@
   /* flex: 1 1 25%; */
   flex: 0 1 auto;
   flex-direction: column;
-  background-color: #65ccb8;
-  min-height: 100%;
-  min-width: 22vh;
+  /* background-color: #65ccb8; */
+  /* background-color: #182628; */
+  background-color: rgba(24, 38, 40, 0.9);
+  border: 3px solid rgba(24, 38, 40, 0.9);
+  /* min-height: 100%; */
+  min-height: 20vh;
+  min-width: 25vh;
   margin: 15px;
-  padding: 30px 15px;
-  color: #182628;
+  /* padding: 30px 15px; */
+  padding: 1rem 2rem 2rem 2rem;
+  /* color: #182628; */
+  color: #65ccb8;
   border-radius: 0.5rem;
+  font-size: 1.2rem;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  /* box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px; */
 }
 
 .event-card:hover {
   cursor: pointer;
+  transition: all 0.25s;
+  background-color: #65ccb8;
+  color: #182628;
+}
+
+.event-card:active {
+  transform: translate(1%, 1px);
 }
 
 .event-card .event-name-wrapper {
   /* margin: 10px 0; */
   font-weight: 620;
   letter-spacing: 1px;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+  margin-bottom: 1.7rem;
 }
 .event-card .event-name-wrapper .event-name {
   text-decoration: underline;
+  /* background-color: #3b945e;
+  color: #182628;
+  padding: 0.5rem;
+  border-radius: 0.5rem; */
 }
+
+/* .text-wrapper {
+  min-height: 100%;
+} */
 
 .location-wrapper {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 /* .location-wrapper .location {
@@ -46,14 +71,21 @@
 
 .start-time-wrapper {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 
 .username-wrapper {
   display: flex;
+  margin-top: 30px;
 }
 
 .username-wrapper .username {
   font-weight: 550;
   text-decoration: underline;
+  width: max-content;
+  /* min-width: max-content; */
+}
+
+.username .hosted-by p {
+  min-width: 50%;
 }
