@@ -32,7 +32,8 @@ export const createEvent = async (event) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // referrerPolicy: "origin",
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
         body: JSON.stringify(event),
       }
@@ -56,7 +57,8 @@ export const readEvents = async () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          referrerPolicy: "origin",
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
       }
     );
@@ -75,7 +77,9 @@ export const updateEvent = async (id, key, value) => {
       {
         method: "PUT",
         headers: {
-          "Content-Type": "appliaction/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
         body: JSON.stringify({
           id: id,
@@ -100,6 +104,8 @@ export const deleteEvent = async (id) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
         body: JSON.stringify({
           id: id,
@@ -123,7 +129,8 @@ export const createUser = async (username, email, password) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          referrerPolicy: "origin",
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
         body: JSON.stringify({
           username: username,
@@ -149,7 +156,9 @@ export const readUser = async (username) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        }, 
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
+        },
         body: JSON.stringify({username: username})
       }
     );
@@ -169,7 +178,8 @@ export const loginUser = async (username, password) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // referrerPolicy: "origin",
+        "Access-Control-Allow-Origin" : "*",
+        "referrerPolicy": "origin",
       },
       body: JSON.stringify({
         username: username,
@@ -199,7 +209,8 @@ export const authCheck = async (jwtToken) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${jwtToken}`,
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
       }
     );
@@ -219,6 +230,8 @@ export const updateUser = async (userObj, filter) => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
         body: JSON.stringify({userObj, userFilter: filter
         }),
@@ -239,6 +252,8 @@ export const deleteUser = async (username) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin" : "*",
+          "referrerPolicy": "origin",
         },
         body: JSON.stringify({
           username: username,

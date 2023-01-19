@@ -44,7 +44,7 @@ const LoginModal = ({ setUser, user, bigUser }) => {
     } else {
       navigate("/");
     }
-  }, [bigUser, navigate]);
+  }, [bigUser, navigate, user]);
   return (
     <div className="outerContainer">
       <img src={logo} className="background" alt="A background of balloons in turkey" />
