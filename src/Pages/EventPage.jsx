@@ -86,7 +86,7 @@ const EventPage = () => {
   return (
     <div>
       {/* <h2>EventPage</h2> */}
-      <div className="event-page-wrapper">
+      <div className="event-page-wrapper" onClick={weatherFetch}>
         {location ? (
           <div className="event-listing-container">
             <div className="event-name-container">
