@@ -12,7 +12,11 @@
 }
 
 .App {
-  background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%);
+  /* background-image: linear-gradient(to top right, #c7f9cc 30%, #80ed99 80%); */
+  /* background-color: #182628; */
+  /* background-color: #65ccb8; */
+  background-color: #57ba98;
+  /* background-color: #3b945e; */
 }
 
 .App {

@@ -1,40 +1,46 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import "../styles/EventPage.css";
 
 const EventPage = () => {
   const location = useLocation();
   console.log(location);
   const currentEvent = location.state.event.post;
-  let weather = useRef(null)
+  let weather = useRef(null);
 
   useEffect(() => {
     async function fetchWeather() {
       const now = new Date();
       const then = new Date(currentEvent.startTime);
-      const duration = Math.ceil(Math.abs((then - now) / (1000*3600*24)))
-      let response
+      const duration = Math.ceil(Math.abs((then - now) / (1000 * 3600 * 24)));
+      let response;
       if (
-        Math.ceil(((then.getTime() - now.getTime()) / (1000*3600*24))) < 14
-      )
-      {                
+        Math.ceil((then.getTime() - now.getTime()) / (1000 * 3600 * 24)) < 14
+      ) {
         try {
-            response = await fetch(process.env.REACT_APP_WEATHER_API+process.env.REACT_APP_WEATHER_KEY+"&q="+currentEvent.location+"&days="+duration);
-              console.log(response)
-            } catch (error) {
-              console.log(error)
-            }
-          } else {
-            response = null
-          }
-          return response
+          response = await fetch(
+            process.env.REACT_APP_WEATHER_API +
+              process.env.REACT_APP_WEATHER_KEY +
+              "&q=" +
+              currentEvent.location +
+              "&days=" +
+              duration
+          );
+          console.log(response);
+        } catch (error) {
+          console.log(error);
         }
-        weather.current = fetchWeather()
+      } else {
+        response = null;
       }
-  , [currentEvent.location, currentEvent.startTime])
+      return response;
+    }
+    weather.current = fetchWeather();
+  }, [currentEvent.location, currentEvent.startTime]);
   return (
     <div>
-      <h2>EventPage</h2>
+      {/* <h2>EventPage</h2> */}
       <div className="event-page-wrapper">
         {location ? (
           <div className="event-listing-container">

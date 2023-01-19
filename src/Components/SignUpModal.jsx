@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { createUser } from "../utils";
-import "../styles/LoginModal.css";
+import logo from "../images/loginBackground.jpg";
+import appLogo from "../images/webAppLogo.png";
+import "../styles/SignUpModal.css";
 
 const SignUpModal = () => {
     const [username, setUsername] = useState()
@@ -19,23 +21,28 @@ const SignUpModal = () => {
 
     return (
         <div className="outerContainer">
+            <img src={logo} className="background" />
             <div className="innerContainer">
+            <img src={appLogo} className="appLogo" />
                 <form onSubmit={submitHandler}>
                     <label>Username:
-                        <input onChange={(event) => setUsername(event.target.value) } required />
+                        <input placeholder="Enter Desired Username" 
+                        onChange={(event) => setUsername(event.target.value) } required />
                     </label>
                     <br/>
-                    <label>e-Mail:
-                        <input onChange={(event) => setEmail(event.target.value) } required />
+                    <label>Email:
+                        <input placeholder="Enter Email"
+                        onChange={(event) => setEmail(event.target.value) } required />
                     </label>
                     <br/>
                     <label>Password:
-                        <input type="password" onChange={(event) => setPassword(event.target.value) } required />
+                        <input type="password" placeholder="Minimum 8 Characters" 
+                        onChange={(event) => setPassword(event.target.value) } required />
                     </label>
                     <br/>
-                    <button type="submit" className="login">Create Account</button>
+                    <button type="submit" className="create">Create Account</button>
                 </form>
-                <Link to="/Login"><button className="signUp">Back to Login</button></Link>
+                <Link to="/Login"><button className="backToLogin">Back to Login</button></Link>
             </div>
         </div>
     )

@@ -2,6 +2,7 @@ import React from "react";
 import { readEvents } from "../utils";
 import { useEffect, useState } from "react";
 import EventCard from "../Components/EventCard";
+import "../styles/Home.css";
 
 const Home = () => {
   const [events, setEvents] = useState([]);
@@ -18,7 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <h2>Home</h2>
+      {/* <h2>Home</h2> */}
       <div className="home-wrapper">
         {events?.length > 0 ? (
           <div className="event-card-container">
