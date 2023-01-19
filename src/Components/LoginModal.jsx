@@ -26,6 +26,7 @@ const LoginModal = ({ setUser, user, bigUser }) => {
     console.log("status:", status);
     const x = status;
     setUser(x);
+    if (!x){tryToLogin(true)}
     // console.log(loggedInUser, "logged in user");
     // console.log(setter);
     // console.log("status:", status);
@@ -39,9 +40,7 @@ const LoginModal = ({ setUser, user, bigUser }) => {
     // }
   };
   useEffect(() => {
-    if (!bigUser) {
-      tryToLogin(true);
-    } else {
+    if (bigUser) {
       tryToLogin(false);
       navigate("/");
     }
