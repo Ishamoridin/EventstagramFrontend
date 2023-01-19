@@ -212,6 +212,7 @@ export const authCheck = async (jwtToken) => {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin" : "*",
           "referrerPolicy": "origin",
+          'Authorization': `Bearer ${jwtToken}`
         },
       }
     );

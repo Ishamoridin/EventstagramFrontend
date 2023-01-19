@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { createEvent } from "../utils";
 import "../styles/CreateEvent.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CreateEvent = (props) => {
   const [eventName, setEventName] = useState();
@@ -12,6 +13,7 @@ const CreateEvent = (props) => {
   const [capacity, setCapacity] = useState();
 
   const loggedInUser = props.user;
+  const navigate = useNavigate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -36,7 +38,9 @@ const CreateEvent = (props) => {
 
     console.log("event obj:", event);
 
-    await createEvent(event);
+    const result = await createEvent(event);
+    console.log(result);
+    if (result.created){navigate("/Home")}
   };
 
   return (

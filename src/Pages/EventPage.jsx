@@ -17,7 +17,7 @@ const EventPage = () => {
 
   useEffect(() => {
     weatherFetch();
-  }, [currentEvent]);
+  },);
 
   const weatherFetch = async () => {
     async function fetchWeather() {
@@ -38,8 +38,7 @@ const EventPage = () => {
               duration
           ));
           const data = await response.json();
-          console.log(data);
-          return data;
+          if (data){weather.current = data}
           // console.log(response);
         } catch (error) {
           console.log(error);
@@ -47,15 +46,16 @@ const EventPage = () => {
       } else {
         response = null;
       }
-      return response;
+      // return response;
       // return data;
     }
-    weather.current = await fetchWeather();
-    setWeatherTemp(weather.current.forecast.forecastday[0].day.avgtemp_c);
+    // weather.current = await fetchWeather();
+    await fetchWeather();
+    if (weather.current) {setWeatherTemp(weather.current.forecast.forecastday[0].day.avgtemp_c);
     setWeatherIcon(weather.current.forecast.forecastday[0].day.condition.icon);
     setWeatherCondition(
       weather.current.forecast.forecastday[0].day.condition.text
-    );
+    )};
     console.log(weatherTemp);
   };
 
