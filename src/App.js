@@ -62,13 +62,13 @@ function App() {
         <Sidebar sidebar={sidebar} setBigUser={setBigUser} setUser={setUser}/>
         <Routes>
           <Route
-            path="/Login"
+            path="/"
             element={<LoginModal setUser={setUser} user={user} bigUser={bigUser}/>}
           />
 
-          <Route path="/SignUp" element={<SignUpModal />} />
+          <Route path="/SignUp" element={<SignUpModal setUser={setUser}/>} />
 
-          <Route path="/" element={<Home user={bigUser} />} />
+          <Route path="/Home" element={<Home user={bigUser} />} />
 
           <Route path="/UserProfile" element={<UserProfile bigUser={bigUser} setUser={setUser} />} />
           <Route path="/EventPage" element={<EventPage user={bigUser} />} />

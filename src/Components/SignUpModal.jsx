@@ -5,18 +5,25 @@ import { createUser } from "../utils";
 import logo from "../images/loginBackground.jpg";
 import appLogo from "../images/webAppLogo.png";
 import "../styles/SignUpModal.css";
+import { useNavigate } from "react-router-dom";
 
-const SignUpModal = () => {
+const SignUpModal = ({setUser}) => {
     const [username, setUsername] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const navigate = useNavigate()
 
     const submitHandler = async (event) => {
         event.preventDefault()
         console.log(username)
         console.log(email)
         console.log(password)
-        await createUser(username, email, password)
+        const content = await createUser(username, email, password);
+        console.log(content);
+        if (!content.error){
+            setUser(content.username);
+            navigate("/userProfile")
+        }
     }
 
     return (

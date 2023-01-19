@@ -139,8 +139,9 @@ export const createUser = async (username, email, password) => {
         }),
       }
     );
-    const data = await response.json();
-    console.log(data);
+    const content = await response.json();
+    console.log(content);
+    return content;
   } catch (error) {
     console.log(error);
   }
