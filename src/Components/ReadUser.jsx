@@ -29,7 +29,7 @@ const ReadUser = ({ bigUser, setUser }) => {
     console.log("Update response", response);
     // if (response.status === 200) {
     setUser(null);
-    navigate("/login");
+    navigate("/");
     // } else {
     //   navigate("UserProfile")
     // }
