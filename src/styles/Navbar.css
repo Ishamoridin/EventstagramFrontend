@@ -79,6 +79,18 @@
   /* color: #182628; */
 }
 
+.sidebar img{
+  width: 250px;
+  margin-top: 20px;
+}
+
+.tool-bar img{
+  width: 300px;
+
+}
+
+
+
 .sidebar li a {
   text-decoration: none;
   /* color: #182628; */
