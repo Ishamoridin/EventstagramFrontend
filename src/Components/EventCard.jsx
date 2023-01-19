@@ -14,12 +14,12 @@ const EventCard = (event) => {
   // function to navigate to user page when username clicked:
   const user = event.post.eventOwner;
   const userNavigate = useNavigate();
-  const userClick = () => {
-    console.log("username clicked with user.id", user.id);
-    userNavigate("/UserProfile", {
-      state: { id: user.id },
-    });
-  };
+  // const userClick = () => {
+  //   console.log("username clicked with user.id", user.id);
+  //   userNavigate("/UserProfile", {
+  //     state: { id: user.id },
+  //   });
+  // };
   const months = [
     "January",
     "February",
@@ -40,12 +40,12 @@ const EventCard = (event) => {
   // const hours = startDate.getHours();
   // const minutes = startDate.getMinutes();
   const time = startDate.toTimeString().substring(0, 5);
-
+  
   try {
     return (
       <div
         className="event-card"
-        key={event.post.id}
+        // key={event.post.id}
         onClick={() => handleClick()}
       >
         <div className="event-name-wrapper">
@@ -67,8 +67,8 @@ const EventCard = (event) => {
           </div>
           <div className="username-wrapper">
             <p className="hosted-by">Hosted By: </p>&nbsp;
-            <p className="username" onClick={() => userClick()}>
-              @{event.post.eventOwner}
+            <p className="username" >
+              {event.post.eventOwner}
             </p>
           </div>
         </div>

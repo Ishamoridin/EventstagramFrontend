@@ -17,7 +17,7 @@ const EventPage = () => {
 
   useEffect(() => {
     weatherFetch();
-  });
+  }, [currentEvent]);
 
   const weatherFetch = async () => {
     async function fetchWeather() {
@@ -29,14 +29,14 @@ const EventPage = () => {
         Math.ceil((then.getTime() - now.getTime()) / (1000 * 3600 * 24)) < 14
       ) {
         try {
-          response = await fetch(
+          console.log(response = await fetch(
             process.env.REACT_APP_WEATHER_API +
               process.env.REACT_APP_WEATHER_KEY +
               "&q=" +
               currentEvent.location +
               "&days=" +
               duration
-          );
+          ));
           const data = await response.json();
           console.log(data);
           return data;
@@ -130,7 +130,7 @@ const EventPage = () => {
                 />
               </div>
               <div className="weather-condition">
-                <p>{weatherCondition ? weatherCondition : "Waiting"}</p>
+                <p>{weatherCondition ? weatherCondition : "https://static.vecteezy.com/system/resources/previews/000/582/158/original/hourglass-icon-vector-illustration.jpg"}</p>
               </div>
             </div>
           </div>
