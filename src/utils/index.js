@@ -102,7 +102,7 @@ export const deleteEvent = async (id) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: id.eventName,
+          id: id,
         }),
       }
     );
@@ -140,8 +140,8 @@ export const createUser = async (username, email, password) => {
 };
 
 export const readUser = async (username) => {
-  let filter = {};
-  if (username) {filter.username = username}
+  console.log(username)
+  
   try {
     const response = await fetch(
       process.env.REACT_APP_RENDER_URL + "readUsers",
@@ -149,13 +149,15 @@ export const readUser = async (username) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },
-        body: JSON.stringify({filter})
+        }, 
+        body: JSON.stringify({username: username})
       }
     );
     const data = await response.json();
-    const usernames = data.users.map((users) => users.username);
-    return usernames;
+    console.log(data)
+    // const usernames = data.users.map((users) => );
+    // return usernames;
+    return data
   } catch (error) {
     console.log(error);
   }
@@ -209,7 +211,7 @@ export const authCheck = async (jwtToken) => {
   }
 };
 
-export const updateUser = async (username, key, value) => {
+export const updateUser = async (newUser, filter) => {
   try {
     const response = await fetch(
       process.env.REACT_APP_RENDER_URL + "updateUser",
@@ -218,11 +220,8 @@ export const updateUser = async (username, key, value) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          username: username,
-          key: key,
-          value: value,
-        }),
+        body: JSON.stringify(newUser, filter
+        ),
       }
     );
     const data = await response.json();
