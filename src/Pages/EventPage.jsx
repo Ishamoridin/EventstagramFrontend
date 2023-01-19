@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import "../styles/EventPage.css";
@@ -8,8 +8,18 @@ const EventPage = () => {
   console.log(location);
   const currentEvent = location.state.event.post;
   let weather = useRef(null);
+  console.log("weather:", weather);
+  // let weatherTemp;
+  // console.log(weatherTemp);
+  const [weatherTemp, setWeatherTemp] = useState();
+  const [weatherIcon, setWeatherIcon] = useState();
+  const [weatherCondition, setWeatherCondition] = useState();
 
   useEffect(() => {
+    weatherFetch();
+  });
+
+  const weatherFetch = async () => {
     async function fetchWeather() {
       const now = new Date();
       const then = new Date(currentEvent.startTime);
@@ -27,7 +37,10 @@ const EventPage = () => {
               "&days=" +
               duration
           );
-          console.log(response);
+          const data = await response.json();
+          console.log(data);
+          return data;
+          // console.log(response);
         } catch (error) {
           console.log(error);
         }
@@ -35,9 +48,41 @@ const EventPage = () => {
         response = null;
       }
       return response;
+      // return data;
     }
-    weather.current = fetchWeather();
-  }, [currentEvent.location, currentEvent.startTime]);
+    weather.current = await fetchWeather();
+    setWeatherTemp(weather.current.forecast.forecastday[0].day.avgtemp_c);
+    setWeatherIcon(weather.current.forecast.forecastday[0].day.condition.icon);
+    setWeatherCondition(
+      weather.current.forecast.forecastday[0].day.condition.text
+    );
+    console.log(weatherTemp);
+  };
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const startDate = new Date(currentEvent.startTime);
+  const month = months[startDate.getMonth()];
+  const day = startDate.getDate();
+  const endDate = new Date(currentEvent.endTime);
+  const endMonth = months[endDate.getMonth()];
+  const endDay = endDate.getDate();
+  // const hours = startDate.getHours();
+  // const minutes = startDate.getMinutes();
+  const startTime = startDate.toTimeString().substring(0, 5);
+  const endTime = endDate.toTimeString().substring(0, 5);
   return (
     <div>
       {/* <h2>EventPage</h2> */}
@@ -45,29 +90,48 @@ const EventPage = () => {
         {location ? (
           <div className="event-listing-container">
             <div className="event-name-container">
-              <p>Event Name:</p>
+              <p className="event-listing-labels">Event Name:</p>
               <p>{currentEvent.eventName}</p>
             </div>
 
-            <div className="event-description-container">
-              <p>Description:</p>
-              <p>{currentEvent.description}</p>
-            </div>
-
             <div className="event-location-container">
-              <p>Location:</p>
+              <p className="event-listing-labels">Location:</p>
               <p>{currentEvent.location}</p>
             </div>
 
+            <div className="event-description-container">
+              <p className="event-listing-labels">Description:</p>
+              <p>{currentEvent.description}</p>
+            </div>
+
             <div className="event-capacity-container">
-              <p>Capacity:</p>
+              <p className="event-listing-labels">Capacity:</p>
               <p>{currentEvent.capacity}</p>
             </div>
 
             <div className="date-time-container">
-              <p>Date & Time:</p>
-              <p>{currentEvent.startTime}</p>
-              <p>{currentEvent.endTime}</p>
+              <p className="event-listing-labels">Date & Time:</p>
+              <p>
+                Start: {month}, {day} at {startTime}
+              </p>
+              <p>
+                End: {endMonth}, {endDay} at {endTime}
+              </p>
+            </div>
+            <div className="weather-container">
+              <p className="event-listing-labels">Weather:</p>
+              <div className="temperature">
+                <p>{weatherTemp ? weatherTemp + "°C" : "Waiting"}</p>
+              </div>
+              <div className="weather-icon">
+                <img
+                  src={weatherIcon ? weatherIcon : "Waiting"}
+                  alt="weather icon"
+                />
+              </div>
+              <div className="weather-condition">
+                <p>{weatherCondition ? weatherCondition : "Waiting"}</p>
+              </div>
             </div>
           </div>
         ) : (
