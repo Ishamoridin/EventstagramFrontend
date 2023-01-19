@@ -14,7 +14,7 @@ const Sidebar = ({sidebar, setUser}) => {
         <li><i><VscHome/></i><Link to="/">Home</Link></li>
         <li><i><MdOutlineCreate/></i><Link to="/PostEvent">PostEvent</Link></li>
         <li><i><CiUser/></i><Link to="/UserProfile">Profile</Link></li>
-        <li><i><CiUser/></i><Link onClick={() => setUser(null)} to="/login">Logout</Link></li>
+        <li><i><CiUser/></i><Link onClick={() => setUser(null)} to="/">Logout</Link></li>
         </div>
   )
 
