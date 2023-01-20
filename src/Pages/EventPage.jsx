@@ -17,7 +17,7 @@ const EventPage = () => {
 
   useEffect(() => {
     weatherFetch();
-  },);
+  });
 
   const weatherFetch = async () => {
     async function fetchWeather() {
@@ -29,16 +29,21 @@ const EventPage = () => {
         Math.ceil((then.getTime() - now.getTime()) / (1000 * 3600 * 24)) < 14
       ) {
         try {
-          console.log(response = await fetch(
-            process.env.REACT_APP_WEATHER_API +
-              process.env.REACT_APP_WEATHER_KEY +
-              "&q=" +
-              currentEvent.location +
-              "&days=" +
-              duration
-          ));
+          console.log(
+            (response = await fetch(
+              process.env.REACT_APP_WEATHER_API +
+                process.env.REACT_APP_WEATHER_KEY +
+                "&q=" +
+                currentEvent.location +
+                "&days=" +
+                duration
+            ))
+          );
           const data = await response.json();
-          if (data){weather.current = data}
+          console.log(data);
+          if (data) {
+            weather.current = data;
+          }
           // console.log(response);
         } catch (error) {
           console.log(error);
@@ -51,11 +56,15 @@ const EventPage = () => {
     }
     // weather.current = await fetchWeather();
     await fetchWeather();
-    if (weather.current) {setWeatherTemp(weather.current.forecast.forecastday[0].day.avgtemp_c);
-    setWeatherIcon(weather.current.forecast.forecastday[0].day.condition.icon);
-    setWeatherCondition(
-      weather.current.forecast.forecastday[0].day.condition.text
-    )};
+    if (weather.current) {
+      setWeatherTemp(weather.current.forecast.forecastday[0].day.avgtemp_c);
+      setWeatherIcon(
+        weather.current.forecast.forecastday[0].day.condition.icon
+      );
+      setWeatherCondition(
+        weather.current.forecast.forecastday[0].day.condition.text
+      );
+    }
     console.log(weatherTemp);
   };
 
@@ -127,12 +136,20 @@ const EventPage = () => {
                 <img
                   height="50px"
                   width="50px"
-                  src={weatherIcon ? weatherIcon : "https://static.vecteezy.com/system/resources/previews/000/582/158/original/hourglass-icon-vector-illustration.jpg"}
+                  src={
+                    weatherIcon
+                      ? weatherIcon
+                      : "https://static.vecteezy.com/system/resources/previews/000/582/158/original/hourglass-icon-vector-illustration.jpg"
+                  }
                   alt="weather icon"
                 />
               </div>
               <div className="weather-condition">
-                <p>{weatherCondition ? weatherCondition : "Forecast available up to 14 days before event start"}</p>
+                <p>
+                  {weatherCondition
+                    ? weatherCondition
+                    : "Forecast available up to 14 days before event start"}
+                </p>
               </div>
             </div>
           </div>
