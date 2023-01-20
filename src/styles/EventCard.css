@@ -19,6 +19,7 @@
   /* min-height: 100%; */
   min-height: 20vh;
   min-width: 25vh;
+  max-width: 300px;
   margin: 15px;
   /* padding: 30px 15px; */
   padding: 1rem 2rem 2rem 2rem;
